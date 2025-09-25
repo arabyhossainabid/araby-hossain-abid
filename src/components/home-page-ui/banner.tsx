@@ -8,7 +8,7 @@ function Banner() {
   const words = ["React", "Next.js", "TailwindCSS", "Aceternity UI"];
 
   return (
-    <section className="relative w-full py-36 overflow-hidden">
+    <section className="relative w-full py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10 w-full h-full">
         <BackgroundBeams />

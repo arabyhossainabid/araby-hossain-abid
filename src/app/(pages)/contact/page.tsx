@@ -8,24 +8,8 @@ function page() {
   return (
     <section className="overflow-hidden">
 
-      <div data-aos="fade-up" data-aos-delay="0">
-        {/* <Banner /> */}
-      </div>
-
       <div data-aos="fade-up" data-aos-delay="150">
-        {/* <Articles /> */}
-      </div>
 
-      <div data-aos="fade-up" data-aos-delay="150">
-        {/* <HeroSection /> */}
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="150">
-        {/* <Topnotch /> */}
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="150">
-        {/* <ShowcaseCarousel /> */}
       </div>
 
       <div data-aos="fade-up" data-aos-delay="150">

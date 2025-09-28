@@ -18,21 +18,20 @@ function Topnotch() {
         {/* Heading */}
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
          via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
-          Top–<span className="font-bold">notch</span> designs,<br />
-          delivered at <span className="font-bold">your</span> doorstep
+          Top–<span className="font-bold">notch</span> Frontend,<br />
+          delivered with <span className="font-bold">precision</span>
         </h2>
 
-
         {/* Feature Cards */}
-        <div className="grid  md:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
           <CometCard>
             <div className="bg-[#111] rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] mb-4">
                 <Bell className="text-yellow-300" size={28} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Tell us your vision</h3>
+              <h3 className="text-lg font-semibold mb-2">Share your vision</h3>
               <p className="text-gray-400 text-sm">
-                Our vision is unlimited, high-quality design—fast, efficient, innovative, and effortlessly elevating brands.
+                I transform your ideas into modern, responsive, and visually appealing web interfaces using React, Next.js, and Tailwind CSS.
               </p>
             </div>
           </CometCard>
@@ -42,9 +41,9 @@ function Topnotch() {
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] mb-4">
                 <Database className="text-yellow-300" size={28} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Receive the magic</h3>
+              <h3 className="text-lg font-semibold mb-2">Build the solution</h3>
               <p className="text-gray-400 text-sm">
-                Experience the magic of unlimited, high-quality design—fast, efficient, and effortlessly transformative.
+                I develop fast, efficient, and scalable frontend solutions that bring your projects to life and enhance user experiences.
               </p>
             </div>
           </CometCard>
@@ -54,9 +53,9 @@ function Topnotch() {
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] mb-4">
                 <LifeBuoy className="text-yellow-300" size={28} />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Get ongoing support</h3>
+              <h3 className="text-lg font-semibold mb-2">Ongoing support</h3>
               <p className="text-gray-400 text-sm">
-                Receive continuous, reliable support—fast, efficient, and always ready to elevate your brand.
+                I provide continuous support, updates, and improvements to ensure your web application stays modern, functional, and reliable.
               </p>
             </div>
           </CometCard>
@@ -65,9 +64,9 @@ function Topnotch() {
         {/* Collaboration Section */}
         <div className="bg-[#111] flex flex-col lg:flex-row justify-between shadow-2xl items-center rounded-2xl p-6 lg:p-16 mt-12">
           <div className="text-left mb-6 max-w-80 w-auto lg:mb-0">
-            <h3 className="text-xl md:text-3xl font-semibold mb-4">Real-time collaborate with Flowbite</h3>
+            <h3 className="text-xl md:text-3xl font-semibold mb-4">Collaborate in <br /> real-time</h3>
             <p className="text-gray-400 text-sm max-w-lg">
-              Collaborate in real-time with Flowbite for seamless, efficient, and innovative design.
+              Work closely with me to design and develop responsive, modern, and interactive frontend solutions that perfectly match your vision.
             </p>
           </div>
 

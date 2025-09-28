@@ -51,9 +51,11 @@ function DesignScroll() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto my-10 sm:my-16 lg:my-20">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 lg:mb-10 text-center">
-        My Journey as a Frontend Developer
-      </h1>
+      <h2 className="text-3xl pb-10 md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
+         via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
+        My<span className="font-bold">Journey</span> as a,<br />
+        Frontend <span className="font-bold">Developer</span>
+      </h2>
       <StickyScroll content={content} />
     </div>
   );

@@ -6,21 +6,21 @@ import { CometCard } from "@/components/ui/comet-card";
 export default function Management() {
   const posts = [
     {
-      tag: "Frontend Development",
-      title: "Modern React & Next.js UIs",
-      desc: "Building fast, responsive, and accessible React & Next.js interfaces.",
+      tag: "Frontend Dev",
+      title: "React & Next.js UI",
+      desc: "Build modern, responsive interfaces with clean, reusable React components.",
       img: "/image/web_developer.png",
     },
     {
-      tag: "Frontend Development",
-      title: "Performance & Optimization",
-      desc: "Improving page speed with code-splitting, lazy loading and smart state management.",
+      tag: "Optimization",
+      title: "Fast & Efficient",
+      desc: "Boost performance with lazy loading, code-splitting, and smart state.",
       img: "/image/web_developer.png",
     },
     {
-      tag: "Design & Dev",
-      title: "Choosing the Right Tech Stack",
-      desc: "Picking tools and frameworks that scale well for modern frontend projects.",
+      tag: "Tech Stack",
+      title: "Smart Choices",
+      desc: "Select frameworks and tools that scale for modern frontend projects.",
       img: "/image/web_developer.png",
     },
   ];
@@ -28,12 +28,13 @@ export default function Management() {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold mb-12">
-          Keep <span className="text-gray-300 font-light">growing</span> with my{" "}
-          <span className="text-gray-300 font-light">frontend blog.</span>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
+         via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
+          Keep<span className="font-bold"> learning</span> with my,<br />
+          frontend <span className="font-bold">projects</span>
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3 mt-10">
           {posts.map((post, i) => (
             <CometCard key={i} className="rounded-2xl">
               <div className="bg-[#111] p-2 rounded-2xl text-left hover:bg-[#1a1a1a] transition-colors duration-300">

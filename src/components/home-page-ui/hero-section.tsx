@@ -1,8 +1,15 @@
+"use client";
 import React from 'react';
 import { ScrollVelocityContainer, ScrollVelocityRow } from '../ui/scroll-based-velocity';
+import { useRouter } from 'next/navigation';
 
 function HeroSection() {
-  // Brand data with names and colors for variety
+  const router = useRouter();
+
+  const handleProjectsClick = () => {
+    router.push("/projects");
+  };
+
   const brands = [
     { name: 'JavaScript', color: 'text-blue-500' },
     { name: 'React.js', color: 'text-purple-500' },
@@ -31,7 +38,7 @@ function HeroSection() {
         </div>
 
         {/* Scrolling brands */}
-        <ScrollVelocityContainer className="rounded-lg  p-6 backdrop-blur-sm">
+        <ScrollVelocityContainer className="rounded-lg p-6 backdrop-blur-sm">
           <ScrollVelocityRow baseVelocity={3} direction={1}>
             <div className="flex items-center gap-12 px-4">
               {brands.map((brand, index) => (
@@ -80,7 +87,11 @@ function HeroSection() {
 
         {/* Call to action */}
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={handleProjectsClick}
+            className="mt-8 px-8 py-3 font-semibold rounded-full bg-[#deff00] text-black
+                       transition-all duration-300 active:scale-95
+                       shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00]">
             Start Building Today
           </button>
         </div>

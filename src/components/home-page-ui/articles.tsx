@@ -9,7 +9,7 @@ import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collis
 function Articles() {
   return (
     <BackgroundBeamsWithCollision className="">
-      <section className=" relative container mx-auto">
+      <section className="relative container mx-auto">
         {/* Desktop layout */}
         <div className="hidden lg:flex flex-row items-center lg:top-8 top-0 justify-between w-full max-w-6xl mx-auto relative z-10">
 
@@ -23,11 +23,11 @@ function Articles() {
               <Star className="text-[#e0ff04]" width={20} height={20} />
             </div>
             <p className="text-md font-medium mt-2">
-              4.9 out of 5 based on 768 reviews
+              5 out of 5 based on 250+ satisfied clients
             </p>
             <div className="flex items-center gap-2 mt-2">
               <Linkedin className="bg-blue-600 p-2 rounded-md" width={50} height={50} />
-              <p className="font-medium text-3xl">Trustpilot</p>
+              <p className="font-medium text-3xl">Client Reviews</p>
             </div>
           </div>
 
@@ -45,8 +45,7 @@ function Articles() {
           {/* Right: Testimonial */}
           <div className="flex flex-col items-start gap-4 text-white flex-1">
             <p className="text-lg leading-relaxed w-80">
-              "We send about a million emails every week now. Being in a B2C
-              business, it's really important for"
+              "Araby Hossain Abid is a skilled Frontend Developer who brings creative and responsive designs to life. Working with modern technologies, he ensures every project looks stunning and functions seamlessly."
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
@@ -57,9 +56,9 @@ function Articles() {
                 className="rounded-full"
               />
               <div className="flex flex-col text-left">
-                <span className="font-bold">Russ Herisson</span>
+                <span className="font-bold">Araby Hossain Abid</span>
                 <span className="text-sm text-gray-400">
-                  Founder of Airbnb
+                  Frontend Developer
                 </span>
               </div>
             </div>
@@ -89,16 +88,15 @@ function Articles() {
               <Star className="text-[#e0ff04]" width={20} height={20} />
             </div>
             <p className="text-md font-medium mt-2 text-center">
-              4.9 out of 5 based on 768 reviews
+              5 out of 5 based on 250+ satisfied clients
             </p>
             <div className="flex items-center gap-2 mt-2">
               <Linkedin className="bg-blue-600 p-2 rounded-md" width={40} height={40} />
-              <p className="font-medium text-2xl">Trustpilot</p>
+              <p className="font-medium text-2xl">Client Reviews</p>
             </div>
 
             <p className="text-lg leading-relaxed text-center mt-6">
-              "We send about a million emails every week now. Being in a B2C
-              business, it's really important for"
+              "Araby Hossain Abid is a skilled Frontend Developer who brings creative and responsive designs to life. Working with modern technologies, he ensures every project looks stunning and functions seamlessly."
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
@@ -109,9 +107,9 @@ function Articles() {
                 className="rounded-full"
               />
               <div className="flex flex-col text-left">
-                <span className="font-bold">Russ Herisson</span>
+                <span className="font-bold">Araby Hossain Abid</span>
                 <span className="text-sm text-gray-400">
-                  Founder of Airbnb
+                  Frontend Developer
                 </span>
               </div>
             </div>

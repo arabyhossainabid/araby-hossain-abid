@@ -3,9 +3,15 @@
 import React from "react";
 import { FlipWords } from "../ui/flip-words";
 import { BackgroundBeams } from "../ui/background-beams";
+import { useRouter } from "next/navigation";
 
 function Banner() {
+  const router = useRouter();
   const words = ["React", "Next.js", "TailwindCSS", "Aceternity UI"];
+
+  const handleContactClick = () => {
+    router.push("/contact");
+  };
 
   return (
     <section className="relative w-full py-32 overflow-hidden">
@@ -52,6 +58,7 @@ function Banner() {
           data-aos-delay="600"
         >
           <button
+            onClick={handleContactClick}
             className="px-10 py-4 text-lg font-semibold rounded-full bg-[#deff00] text-black
                        transition-all duration-300 active:scale-95
                        shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00]"

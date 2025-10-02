@@ -2,70 +2,110 @@
 
 import React from "react";
 import { FlipWords } from "../ui/flip-words";
-import { BackgroundBeams } from "../ui/background-beams";
 import { useRouter } from "next/navigation";
+import Hyperspeed from "../ui/hyperspeed";
+import person from "../../../public/image/sdasd.avif";
+import Image from "next/image";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 function Banner() {
   const router = useRouter();
-  const words = ["React", "Next.js", "TailwindCSS", "Aceternity UI"];
+  const words = ["React", "Next.js", "TailwindCSS", "React Bits", "Aceternity UI"];
 
   const handleContactClick = () => {
     router.push("/contact");
   };
 
   return (
-    <section className="relative w-full py-32 overflow-hidden">
+    <section data-aos="fade-up" data-aos-delay="0" className="relative max-w-screen max-h-screen py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 w-full h-full">
-        <BackgroundBeams />
+      <div className="absolute inset-0 -z-10 max-w-screen max-h-screen">
+        <Hyperspeed
+          effectOptions={{
+            distortion: "turbulentDistortion",
+            length: 400,
+            roadWidth: 10,
+            islandWidth: 2,
+            lanesPerRoad: 4,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 20,
+            lightPairsPerRoadWay: 40,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -160],
+            carLightsLength: [400 * 0.03, 400 * 0.2],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.8, 0.8],
+            carFloorSeparation: [0, 5],
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xffffff,
+              brokenLines: 0xffffff,
+              leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+              rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+              sticks: 0x03b3c3,
+            },
+          }}
+        />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto flex flex-col items-center text-center max-w-4xl space-y-10 px-4">
-        {/* Heading */}
-        <h2
-          className="text-4xl md:text-6xl font-bold leading-tight text-center
-          bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100
-          bg-clip-text text-transparent"
-          data-aos="fade-up"
-        >
-          Unlimited design at <br /> the next level.
-        </h2>
+      {/* Content Grid */}
+      <div className="relative z-10 container mx-auto max-w-screen max-h-screen flex justify-around items-center px-6">
+        {/* Left Content */}
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-6">
 
-        {/* FlipWords */}
-        <div
-          className="text-4xl md:text-6xl font-bold py-3"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Build <FlipWords words={words} />
-        </div>
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100 bg-clip-text text-transparent">
+            Unlimited design at <br /> the next level.
+          </h2>
 
-        {/* Paragraph */}
-        <p
-          className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          Unlimited, high-quality design—plus a frontend developer skilled <br />
-          in React, Next.js, and Tailwind CSS creating responsive, user-friendly websites.
-        </p>
+          <div className="text-4xl md:text-6xl font-bold py-2">
+            Build <FlipWords words={words} />
+          </div>
 
-        {/* Button */}
-        <div
-          className="flex flex-col sm:flex-row gap-6 mt-6"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <button
-            onClick={handleContactClick}
-            className="px-10 py-4 text-lg font-semibold rounded-full bg-[#deff00] text-black
+          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400">
+            Unlimited, high-quality design—plus a frontend developer skilled <br />
+            in React, Next.js, and Tailwind CSS creating responsive, user-friendly websites.
+          </p>
+
+          <div className="flex w-full flex-col gap-3 sm:flex-row lg:justify-start mt-6">
+            <button
+              onClick={handleContactClick}
+              className="px-10 py-4 text-lg font-semibold rounded-full bg-[#deff00] text-black
                        transition-all duration-300 active:scale-95
                        shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00]"
-          >
-            Contact Now
-          </button>
+            >
+              Contact Now
+            </button>
+            <InteractiveHoverButton
+              className="py-3 border border-[#deff00] font-medium rounded-full"
+            >
+              View Projects
+            </InteractiveHoverButton>
+          </div>
         </div>
+
+        {/* Right Image */}
+        {/* Right Image */}
+        <div className="relative w-[300px] h-[450px] lg:w-[440px] lg:h-[590px] flex-shrink-0 hidden md:block">
+          <Image
+            src={person}
+            alt="Person"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+
       </div>
     </section>
   );

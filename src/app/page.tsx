@@ -27,13 +27,13 @@ export default function Home() {
   return (
     <section className="overflow-hidden">
 
-      <div data-aos="fade-up" data-aos-delay="0">
+      <div >
         <Banner />
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="150">
+      {/* <div data-aos="fade-up" data-aos-delay="150">
         <Articles />
-      </div>
+      </div> */}
 
       <div data-aos="fade-up" data-aos-delay="150">
         <HeroSection />

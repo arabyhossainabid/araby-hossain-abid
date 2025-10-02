@@ -40,15 +40,10 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  const backgroundColors = [
-    "#0f172a", // slate-900
-    "#000000", // black
-    "#171717", // neutral-900
-  ];
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
+    "linear-gradient(to bottom right, #06b6d4, #10b981)",
+    "linear-gradient(to bottom right, #ec4899, #6366f1)",
+    "linear-gradient(to bottom right, #f97316, #eab308)",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
@@ -61,18 +56,13 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-      }}
       ref={ref}
       className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10 scrollbar-none"
-      // Tailwind 3+ supports `scrollbar-none` if you have the plugin; otherwise use style
       style={{
-        scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none", // IE 10+
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
       }}
     >
-      {/* Hide scrollbar for Webkit browsers */}
       <style jsx>{`
       .scrollbar-none::-webkit-scrollbar {
         display: none;

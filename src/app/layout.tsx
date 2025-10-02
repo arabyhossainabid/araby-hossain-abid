@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/pages/navbar/navbar";
-import AOSWrapper from "../components/AOSWrapper"; // import the client component
+import AOSWrapper from "../components/AOSWrapper";
+import SplashCursor from "@/components/SplashCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +31,11 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AOSWrapper /> {/* Initialize AOS safely in client component */}
+        <AOSWrapper />
         <Navbar />
+
+        <SplashCursor />
+
         <main>{children}</main>
       </body>
     </html>

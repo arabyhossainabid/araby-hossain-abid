@@ -25,7 +25,7 @@ export function FloatingDockDemo() {
 
   return (
     <div>
-      <FloatingDock mobileClassName="translate-y-20" items={links} />
+      <FloatingDock items={links} />
     </div>
   );
 }

@@ -6,7 +6,6 @@ export const NavMenu = ({ style }: { style?: string }) => {
   return (
     <div className={style}>
       <FloatingDockDemo />
-
     </div>
   );
 };

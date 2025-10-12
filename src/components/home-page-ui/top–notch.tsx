@@ -13,7 +13,7 @@ function Topnotch() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto py-16 px-6 md:px-12 lg:px-20">
+    <section className="max-w-7xl mx-auto py-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
@@ -37,7 +37,7 @@ function Topnotch() {
           </CometCard>
 
           <CometCard>
-            <div className="bg-[#111] rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition">
+            <div className="bg-[#111] h-full rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition">
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] mb-4">
                 <Database className="text-yellow-300" size={28} />
               </div>

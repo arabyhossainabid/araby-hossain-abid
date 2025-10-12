@@ -1,5 +1,7 @@
 "use client";
+
 import * as React from "react";
+
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -14,29 +16,25 @@ import { cn } from "@/lib/utils";
 export default function SlideScale() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  console.log("current :", current);
 
   React.useEffect(() => {
-    if (!api) return;
+    if (!api) {
+      return;
+    }
 
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
-
-    // Auto switch প্রতি 3 সেকেন্ডে
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
   }, [api]);
 
   return (
-    <div className="mx-auto max-w-7xl my-20 lg:my-40">
+    <div className="mx-auto max-w-xs">
       <Carousel
         setApi={setApi}
-        className="w-full max-w-screen"
+        className="w-full max-w-xs"
         opts={{ loop: true }}
       >
         <CarouselContent className="py-3">

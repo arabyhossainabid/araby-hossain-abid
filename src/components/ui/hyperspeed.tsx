@@ -1,9 +1,17 @@
-import { useEffect, useRef, FC } from 'react';
+import { useEffect, useRef, FC, useMemo } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
+interface UniformValue {
+  value: number | THREE.Vector2 | THREE.Vector3 | THREE.Vector4 | THREE.Color;
+}
+
+interface DistortionUniforms {
+  [key: string]: UniformValue;
+}
+
 interface Distortion {
-  uniforms: Record<string, { value: any }>;
+  uniforms: DistortionUniforms;
   getDistortion: string;
   getJS?: (progress: number, time: number) => THREE.Vector3;
 }
@@ -923,13 +931,20 @@ class App {
   renderPass!: RenderPass;
   bloomPass!: EffectPass;
   clock: THREE.Clock;
-  assets: Record<string, any>;
+  assets: {
+    smaa: {
+      search?: HTMLImageElement;
+      area?: HTMLImageElement;
+    };
+  } = {
+    smaa: {}
+  };
   disposed: boolean;
   road: Road;
   leftCarLights: CarLights;
   rightCarLights: CarLights;
   leftSticks: LightsSticks;
-  fogUniforms: Record<string, { value: any }>;
+  fogUniforms: Record<string, UniformValue>;
   fovTarget: number;
   speedUpTarget: number;
   speedUp: number;
@@ -973,7 +988,12 @@ class App {
     };
 
     this.clock = new THREE.Clock();
-    this.assets = {};
+    this.assets = {
+      smaa: {
+        search: undefined,
+        area: undefined
+      }
+    };
     this.disposed = false;
 
     this.road = new Road(this, options);
@@ -1217,10 +1237,11 @@ class App {
 }
 
 const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
-  const mergedOptions: HyperspeedOptions = {
+  const mergedOptions = useMemo(() => ({
     ...defaultOptions,
     ...effectOptions
-  };
+  }), [effectOptions]);
+
   const hyperspeed = useRef<HTMLDivElement>(null);
   const appRef = useRef<App | null>(null);
 

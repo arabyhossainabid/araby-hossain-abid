@@ -5,7 +5,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Banner from "@/components/home-page-ui/banner";
-import Articles from "@/components/home-page-ui/articles";
 import HeroSection from "@/components/home-page-ui/hero-section";
 import Topnotch from "@/components/home-page-ui/top–notch";
 import ShowcaseCarousel from "@/components/home-page-ui/showcase-carousel";
@@ -30,10 +29,6 @@ export default function Home() {
       <div >
         <Banner />
       </div>
-
-      {/* <div data-aos="fade-up" data-aos-delay="150">
-        <Articles />
-      </div> */}
 
       <div data-aos="fade-up" data-aos-delay="150">
         <HeroSection />

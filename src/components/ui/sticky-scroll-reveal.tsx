@@ -11,21 +11,19 @@ export const StickyScroll = ({
   content: {
     title: string;
     description: string;
-    content?: React.ReactNode | any;
+    content?: React.ReactNode;
   }[];
   contentClassName?: string;
 }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef<any>(null);
+  const [activeCard, setActiveCard] = useState(0);
+  const ref = useRef<HTMLDivElement>(null); // replaced any with HTMLDivElement
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
     container: ref,
     offset: ["start start", "end start"],
   });
   const cardLength = content.length;
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
     const cardsBreakpoints = content.map((_, index) => index / cardLength);
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
@@ -35,24 +33,26 @@ export const StickyScroll = ({
         }
         return acc;
       },
-      0,
+      0
     );
     setActiveCard(closestBreakpointIndex);
   });
 
-  const linearGradients = [
+  const linearGradients: string[] = [
     "linear-gradient(to bottom right, #06b6d4, #10b981)",
     "linear-gradient(to bottom right, #ec4899, #6366f1)",
     "linear-gradient(to bottom right, #f97316, #eab308)",
   ];
 
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0],
+  const [backgroundGradient, setBackgroundGradient] = useState<string>(
+    linearGradients[0]
   );
 
   useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
+    setBackgroundGradient(
+      linearGradients[activeCard % linearGradients.length]
+    );
+  }, [activeCard, linearGradients]); // added linearGradients to dependency array
 
   return (
     <motion.div
@@ -64,10 +64,10 @@ export const StickyScroll = ({
       }}
     >
       <style jsx>{`
-      .scrollbar-none::-webkit-scrollbar {
-        display: none;
-      }
-    `}</style>
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
 
       <div className="relative flex items-start px-4">
         <div className="max-w-2xl">
@@ -96,12 +96,11 @@ export const StickyScroll = ({
         style={{ background: backgroundGradient }}
         className={cn(
           "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block",
-          contentClassName,
+          contentClassName
         )}
       >
         {content[activeCard].content ?? null}
       </div>
     </motion.div>
   );
-
 };

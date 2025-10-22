@@ -14,56 +14,13 @@ export const BackgroundBeamsWithCollision = ({
   const parentRef = useRef<HTMLDivElement>(null);
 
   const beams = [
-    {
-      initialX: 10,
-      translateX: 10,
-      duration: 7,
-      repeatDelay: 3,
-      delay: 2,
-    },
-    {
-      initialX: 600,
-      translateX: 600,
-      duration: 3,
-      repeatDelay: 3,
-      delay: 4,
-    },
-    {
-      initialX: 100,
-      translateX: 100,
-      duration: 7,
-      repeatDelay: 7,
-      className: "h-6",
-    },
-    {
-      initialX: 400,
-      translateX: 400,
-      duration: 5,
-      repeatDelay: 14,
-      delay: 4,
-    },
-    {
-      initialX: 800,
-      translateX: 800,
-      duration: 11,
-      repeatDelay: 2,
-      className: "h-20",
-    },
-    {
-      initialX: 1000,
-      translateX: 1000,
-      duration: 4,
-      repeatDelay: 2,
-      className: "h-12",
-    },
-    {
-      initialX: 1200,
-      translateX: 1200,
-      duration: 6,
-      repeatDelay: 4,
-      delay: 2,
-      className: "h-6",
-    },
+    { initialX: 10, translateX: 10, duration: 7, repeatDelay: 3, delay: 2 },
+    { initialX: 600, translateX: 600, duration: 3, repeatDelay: 3, delay: 4 },
+    { initialX: 100, translateX: 100, duration: 7, repeatDelay: 7, className: "h-6" },
+    { initialX: 400, translateX: 400, duration: 5, repeatDelay: 14, delay: 4 },
+    { initialX: 800, translateX: 800, duration: 11, repeatDelay: 2, className: "h-20" },
+    { initialX: 1000, translateX: 1000, duration: 4, repeatDelay: 2, className: "h-12" },
+    { initialX: 1200, translateX: 1200, duration: 6, repeatDelay: 4, delay: 2, className: "h-6" },
   ];
 
   return (
@@ -99,8 +56,8 @@ export const BackgroundBeamsWithCollision = ({
 const CollisionMechanism = React.forwardRef<
   HTMLDivElement,
   {
-    containerRef: React.RefObject<HTMLDivElement>;
-    parentRef: React.RefObject<HTMLDivElement>;
+    containerRef: React.RefObject<HTMLDivElement | null>;
+    parentRef: React.RefObject<HTMLDivElement | null>;
     beamOptions?: {
       initialX?: number;
       translateX?: number;
@@ -113,22 +70,17 @@ const CollisionMechanism = React.forwardRef<
       repeatDelay?: number;
     };
   }
->(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+>(({ parentRef, containerRef, beamOptions = {} }, _unusedRef) => {
   const beamRef = useRef<HTMLDivElement>(null);
   const [collision, setCollision] = useState<{
     detected: boolean;
     coordinates: { x: number; y: number } | null;
-  }>({
-    detected: false,
-    coordinates: null,
-  });
+  }>({ detected: false, coordinates: null });
   const [beamKey, setBeamKey] = useState(0);
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  useEffect(() => setIsClient(true), []);
 
   useEffect(() => {
     if (!isClient) return;
@@ -145,16 +97,12 @@ const CollisionMechanism = React.forwardRef<
         const parentRect = parentRef.current.getBoundingClientRect();
 
         if (beamRect.bottom >= containerRect.top) {
-          const relativeX =
-            beamRect.left - parentRect.left + beamRect.width / 2;
+          const relativeX = beamRect.left - parentRect.left + beamRect.width / 2;
           const relativeY = beamRect.bottom - parentRect.top;
 
           setCollision({
             detected: true,
-            coordinates: {
-              x: relativeX,
-              y: relativeY,
-            },
+            coordinates: { x: relativeX, y: relativeY },
           });
           setCycleCollisionDetected(true);
         }
@@ -162,9 +110,8 @@ const CollisionMechanism = React.forwardRef<
     };
 
     const animationInterval = setInterval(checkCollision, 50);
-
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected, containerRef, isClient]);
+  }, [cycleCollisionDetected, containerRef, parentRef, isClient]); // ✅ added parentRef
 
   useEffect(() => {
     if (!isClient) return;
@@ -186,9 +133,7 @@ const CollisionMechanism = React.forwardRef<
     }
   }, [collision, isClient]);
 
-  if (!isClient) {
-    return null;
-  }
+  if (!isClient) return null;
 
   return (
     <>
@@ -241,16 +186,17 @@ const CollisionMechanism = React.forwardRef<
 CollisionMechanism.displayName = "CollisionMechanism";
 
 const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
-  const [spans, setSpans] = useState<Array<{
-    id: number;
-    initialX: number;
-    initialY: number;
-    directionX: number;
-    directionY: number;
-  }>>([]);
+  const [spans, setSpans] = useState<
+    Array<{
+      id: number;
+      initialX: number;
+      initialY: number;
+      directionX: number;
+      directionY: number;
+    }>
+  >([]);
 
   useEffect(() => {
-    // Generate random values only on client side
     const generatedSpans = Array.from({ length: 20 }, (_, index) => ({
       id: index,
       initialX: 0,
@@ -261,9 +207,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
     setSpans(generatedSpans);
   }, []);
 
-  if (spans.length === 0) {
-    return null;
-  }
+  if (spans.length === 0) return null;
 
   return (
     <div {...props} className={cn("absolute z-50 h-2 w-2", props.className)}>
@@ -273,7 +217,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
         exit={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm"
-      ></motion.div>
+      />
       {spans.map((span) => (
         <motion.span
           key={span.id}
@@ -283,7 +227,10 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
             y: span.directionY,
             opacity: 0,
           }}
-          transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
+          transition={{
+            duration: Math.random() * 1.5 + 0.5,
+            ease: "easeOut",
+          }}
           className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-indigo-500 to-purple-500"
         />
       ))}

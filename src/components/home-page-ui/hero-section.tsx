@@ -11,14 +11,14 @@ const techLogos = [
 ];
 
 // Alternative with image sources
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const imageLogos = [
   { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
   { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
 ];
+
 function HeroSection() {
-
-
   return (
     <section className="container mx-auto max-w-7xl my-40 lg:mt-60 mb-10 bg-gradient-to-br overflow-hidden">
       <div className="container mx-auto px-4">
@@ -29,10 +29,10 @@ function HeroSection() {
             Elevate your <span className="font-bold">web</span> presence
             with modern <span className="font-bold">frontend</span> experiences.
           </h2>
-          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400 mb-10">Passionate Frontend Developer skilled in React.js, Next.js, and Tailwind CSS. Adept at building
+          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400 mb-10">
+            Passionate Frontend Developer skilled in React.js, Next.js, and Tailwind CSS. Adept at building
             responsive, user-friendly web applications with clean and efficient code. Seeking an opportunity to
             apply creativity and technical expertise to deliver seamless user experiences.
-
           </p>
         </div>
 

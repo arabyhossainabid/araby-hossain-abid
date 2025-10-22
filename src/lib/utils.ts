@@ -22,7 +22,7 @@ export function groupBy<T, K extends keyof T>(
     }
     acc[keyValue].push(item);
     return acc;
-  }, {}); // no "any", fully typed
+  }, {});
 }
 
 export function absoluteUrl(path: string) {

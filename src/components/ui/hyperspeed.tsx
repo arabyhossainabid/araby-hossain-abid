@@ -2,8 +2,17 @@ import { useEffect, useRef, FC } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
+interface UniformValue {
+  value: number | THREE.Vector2 | THREE.Vector3 | THREE.Vector4 | THREE.Color | THREE.Texture;
+}
+
+interface AssetMap {
+  [key: string]: HTMLImageElement | THREE.Texture | { [key: string]: HTMLImageElement | THREE.Texture };
+}
+
+// Update Distortion interface
 interface Distortion {
-  uniforms: Record<string, { value: any }>;
+  uniforms: Record<string, UniformValue>;
   getDistortion: string;
   getJS?: (progress: number, time: number) => THREE.Vector3;
 }
@@ -456,7 +465,7 @@ class CarLights {
     const curve = new THREE.LineCurve3(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1));
     const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false);
 
-    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
+    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as THREE.BufferGeometry) as THREE.InstancedBufferGeometry;
     instanced.instanceCount = options.lightPairsPerRoadWay * 2;
 
     const laneWidth = options.roadWidth / options.lanesPerRoad;
@@ -614,7 +623,7 @@ class LightsSticks {
   init() {
     const options = this.options;
     const geometry = new THREE.PlaneGeometry(1, 1);
-    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as any) as THREE.InstancedBufferGeometry;
+    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as THREE.BufferGeometry) as THREE.InstancedBufferGeometry;
     const totalSticks = options.totalSideLightSticks;
     instanced.instanceCount = totalSticks;
 
@@ -758,7 +767,7 @@ class Road {
       segments
     );
 
-    let uniforms: Record<string, { value: any }> = {
+    let uniforms: Record<string, UniformValue> = {
       uTravelLength: { value: options.length },
       uColor: {
         value: new THREE.Color(isRoad ? options.colors.roadColor : options.colors.islandColor)
@@ -923,13 +932,13 @@ class App {
   renderPass!: RenderPass;
   bloomPass!: EffectPass;
   clock: THREE.Clock;
-  assets: Record<string, any>;
+  assets: AssetMap;
   disposed: boolean;
   road: Road;
   leftCarLights: CarLights;
   rightCarLights: CarLights;
   leftSticks: LightsSticks;
-  fogUniforms: Record<string, { value: any }>;
+  fogUniforms: Record<string, { value: number | THREE.Color }>;
   fovTarget: number;
   speedUpTarget: number;
   speedUp: number;
@@ -1056,13 +1065,13 @@ class App {
       const areaImage = new Image();
       assets.smaa = {};
 
-      searchImage.addEventListener('load', function () {
-        assets.smaa.search = this;
+      searchImage.addEventListener('load', function (this: HTMLImageElement) {
+        (assets.smaa as { search?: HTMLImageElement }).search = this;
         manager.itemEnd('smaa-search');
       });
 
-      areaImage.addEventListener('load', function () {
-        assets.smaa.area = this;
+      areaImage.addEventListener('load', function (this: HTMLImageElement) {
+        (assets.smaa as { area?: HTMLImageElement }).area = this;
         manager.itemEnd('smaa-area');
       });
 

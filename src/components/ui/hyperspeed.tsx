@@ -462,10 +462,24 @@ class CarLights {
 
   init() {
     const options = this.options;
-    const curve = new THREE.LineCurve3(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -1));
+    const curve = new THREE.LineCurve3(
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(0, 0, -1)
+    );
     const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false);
 
-    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as THREE.BufferGeometry) as THREE.InstancedBufferGeometry;
+    // ✅ Correct instanced geometry creation
+    const instanced = new THREE.InstancedBufferGeometry();
+    // Copy all attributes from the TubeGeometry
+    for (const name in geometry.attributes) {
+      instanced.setAttribute(name, geometry.attributes[name]);
+    }
+    if (geometry.index) {
+      instanced.setIndex(geometry.index);
+    }
+    instanced.boundingBox = geometry.boundingBox;
+    instanced.boundingSphere = geometry.boundingSphere;
+
     instanced.instanceCount = options.lightPairsPerRoadWay * 2;
 
     const laneWidth = options.roadWidth / options.lanesPerRoad;
@@ -474,12 +488,9 @@ class CarLights {
     const aMetrics: number[] = [];
     const aColor: number[] = [];
 
-    let colorArray: THREE.Color[];
-    if (Array.isArray(this.colors)) {
-      colorArray = this.colors.map(c => new THREE.Color(c));
-    } else {
-      colorArray = [new THREE.Color(this.colors)];
-    }
+    const colorArray: THREE.Color[] = Array.isArray(this.colors)
+      ? this.colors.map(c => new THREE.Color(c))
+      : [new THREE.Color(this.colors)];
 
     for (let i = 0; i < options.lightPairsPerRoadWay; i++) {
       const radius = random(options.carLightsRadius);
@@ -496,35 +507,29 @@ class CarLights {
       const offsetY = random(options.carFloorSeparation) + radius * 1.3;
       const offsetZ = -random(options.length);
 
-      aOffset.push(laneX - carWidth / 2);
-      aOffset.push(offsetY);
-      aOffset.push(offsetZ);
+      aOffset.push(laneX - carWidth / 2, offsetY, offsetZ);
+      aOffset.push(laneX + carWidth / 2, offsetY, offsetZ);
 
-      aOffset.push(laneX + carWidth / 2);
-      aOffset.push(offsetY);
-      aOffset.push(offsetZ);
-
-      aMetrics.push(radius);
-      aMetrics.push(length);
-      aMetrics.push(spd);
-
-      aMetrics.push(radius);
-      aMetrics.push(length);
-      aMetrics.push(spd);
+      aMetrics.push(radius, length, spd);
+      aMetrics.push(radius, length, spd);
 
       const color = pickRandom<THREE.Color>(colorArray);
-      aColor.push(color.r);
-      aColor.push(color.g);
-      aColor.push(color.b);
-
-      aColor.push(color.r);
-      aColor.push(color.g);
-      aColor.push(color.b);
+      aColor.push(color.r, color.g, color.b);
+      aColor.push(color.r, color.g, color.b);
     }
 
-    instanced.setAttribute('aOffset', new THREE.InstancedBufferAttribute(new Float32Array(aOffset), 3, false));
-    instanced.setAttribute('aMetrics', new THREE.InstancedBufferAttribute(new Float32Array(aMetrics), 3, false));
-    instanced.setAttribute('aColor', new THREE.InstancedBufferAttribute(new Float32Array(aColor), 3, false));
+    instanced.setAttribute(
+      'aOffset',
+      new THREE.InstancedBufferAttribute(new Float32Array(aOffset), 3, false)
+    );
+    instanced.setAttribute(
+      'aMetrics',
+      new THREE.InstancedBufferAttribute(new Float32Array(aMetrics), 3, false)
+    );
+    instanced.setAttribute(
+      'aColor',
+      new THREE.InstancedBufferAttribute(new Float32Array(aColor), 3, false)
+    );
 
     const material = new THREE.ShaderMaterial({
       fragmentShader: carLightsFragment,
@@ -534,11 +539,11 @@ class CarLights {
         {
           uTime: { value: 0 },
           uTravelLength: { value: options.length },
-          uFade: { value: this.fade }
+          uFade: { value: this.fade },
         },
         this.webgl.fogUniforms,
         (typeof this.options.distortion === 'object' ? this.options.distortion.uniforms : {}) || {}
-      )
+      ),
     });
 
     material.onBeforeCompile = shader => {
@@ -560,6 +565,7 @@ class CarLights {
     }
   }
 }
+
 
 const carLightsFragment = `
   #define USE_FOG;
@@ -622,8 +628,22 @@ class LightsSticks {
 
   init() {
     const options = this.options;
+
+    // ✅ Original geometry
     const geometry = new THREE.PlaneGeometry(1, 1);
-    const instanced = new THREE.InstancedBufferGeometry().copy(geometry as THREE.BufferGeometry) as THREE.InstancedBufferGeometry;
+
+    // ✅ Correct instanced geometry creation
+    const instanced = new THREE.InstancedBufferGeometry();
+    // Copy all attributes from the PlaneGeometry
+    for (const name in geometry.attributes) {
+      instanced.setAttribute(name, geometry.attributes[name]);
+    }
+    if (geometry.index) {
+      instanced.setIndex(geometry.index);
+    }
+    instanced.boundingBox = geometry.boundingBox;
+    instanced.boundingSphere = geometry.boundingSphere;
+
     const totalSticks = options.totalSideLightSticks;
     instanced.instanceCount = totalSticks;
 
@@ -632,25 +652,20 @@ class LightsSticks {
     const aColor: number[] = [];
     const aMetrics: number[] = [];
 
-    let colorArray: THREE.Color[];
-    if (Array.isArray(options.colors.sticks)) {
-      colorArray = options.colors.sticks.map(c => new THREE.Color(c));
-    } else {
-      colorArray = [new THREE.Color(options.colors.sticks)];
-    }
+    const colorArray: THREE.Color[] = Array.isArray(options.colors.sticks)
+      ? options.colors.sticks.map(c => new THREE.Color(c))
+      : [new THREE.Color(options.colors.sticks)];
 
     for (let i = 0; i < totalSticks; i++) {
       const width = random(options.lightStickWidth);
       const height = random(options.lightStickHeight);
+
       aOffset.push((i - 1) * stickoffset * 2 + stickoffset * Math.random());
 
       const color = pickRandom<THREE.Color>(colorArray);
-      aColor.push(color.r);
-      aColor.push(color.g);
-      aColor.push(color.b);
+      aColor.push(color.r, color.g, color.b);
 
-      aMetrics.push(width);
-      aMetrics.push(height);
+      aMetrics.push(width, height);
     }
 
     instanced.setAttribute('aOffset', new THREE.InstancedBufferAttribute(new Float32Array(aOffset), 1, false));
@@ -690,6 +705,7 @@ class LightsSticks {
     }
   }
 }
+
 
 const sideSticksVertex = `
   #define USE_FOG;

@@ -48,7 +48,8 @@ const cx = (...parts: Array<string | false | null | undefined>) => parts.filter(
 
 const useResizeObserver = (
   callback: () => void,
-  elements: Array<React.RefObject<Element | null>>
+  elements: Array<React.RefObject<Element | null>>,
+  dependencies: React.DependencyList
 ) => {
   const stableCallback = useCallback(callback, [callback]);
   useEffect(() => {
@@ -71,12 +72,13 @@ const useResizeObserver = (
     return () => {
       observers.forEach((observer) => observer?.disconnect());
     };
-  }, [elements, stableCallback]);
+  }, [elements, stableCallback, ...dependencies]);
 };
 
 const useImageLoader = (
   seqRef: React.RefObject<HTMLUListElement | null>,
-  onLoad: () => void
+  onLoad: () => void,
+  dependencies: React.DependencyList
 ) => {
   const stableOnLoad = useCallback(onLoad, [onLoad]);
   useEffect(() => {
@@ -111,7 +113,7 @@ const useImageLoader = (
         img.removeEventListener('error', handleImageLoad);
       });
     };
-  }, [seqRef, stableOnLoad]);
+  }, [seqRef, stableOnLoad, ...dependencies]);
 };
 
 const useAnimationLoop = (

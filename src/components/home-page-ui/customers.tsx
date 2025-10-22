@@ -44,9 +44,9 @@ function Customers() {
     <section className="max-w-6xl mx-auto py-16 px-6 md:px-12 lg:px-20 text-white">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
-         via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
-          My<span className="font-bold">clients</span> think<br />
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight bg-gradient-to-r from-stone-800/100 via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
+          My<span className="font-bold">clients</span> think
+          <br />
           about <span className="font-bold">my</span> work
         </h2>
       </div>
@@ -58,18 +58,23 @@ function Customers() {
             <div className="bg-[#111] rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition-colors duration-300">
               {/* Stars */}
               <div className="flex mb-4">
-                {Array.from({ length: 5 }).map((_, idx) => (
-                  <Star
-                    key={idx}
-                    size={18}
-                    className={`${idx + 1 <= Math.floor(t.rating)
-                      ? "text-yellow-400 fill-yellow-400"
-                      : idx < t.rating
-                        ? "text-yellow-400 fill-yellow-400 opacity-60"
-                        : "text-gray-600"
+                {Array.from({ length: 5 }).map((_, idx) => {
+                  const fullStar = idx + 1 <= Math.floor(t.rating);
+                  const halfStar = idx + 0.5 === t.rating;
+                  return (
+                    <Star
+                      key={idx}
+                      size={18}
+                      className={`${
+                        fullStar
+                          ? "text-yellow-400 fill-yellow-400"
+                          : halfStar
+                          ? "text-yellow-400 fill-yellow-400 opacity-60"
+                          : "text-gray-600"
                       }`}
-                  />
-                ))}
+                    />
+                  );
+                })}
               </div>
 
               {/* Review */}
@@ -82,7 +87,9 @@ function Customers() {
                 <Image
                   src={t.image}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  width={48} // Tailwind w-12
+                  height={48} // Tailwind h-12
+                  className="rounded-full object-cover"
                 />
                 <div>
                   <h4 className="font-semibold text-white">{t.name}</h4>

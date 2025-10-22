@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, MouseEvent } from "react";
 import {
   motion,
   useTransform,
@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
+import Image from "next/image";
 
 export const AnimatedTooltip = ({
   items,
@@ -33,13 +34,14 @@ export const AnimatedTooltip = ({
     springConfig
   );
 
-  const handleMouseMove = (event: any) => {
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
     }
 
     animationFrameRef.current = requestAnimationFrame(() => {
-      const halfWidth = event.target.offsetWidth / 2;
+      const target = event.currentTarget;
+      const halfWidth = target.offsetWidth / 2;
       x.set(event.nativeEvent.offsetX - halfWidth);
     });
   };
@@ -54,12 +56,17 @@ export const AnimatedTooltip = ({
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {item.image ? (
-            <img
+            <div
               onMouseMove={handleMouseMove}
-              src={item.image}
-              alt={item.name}
-              className="relative !m-0 h-14 w-14 md:h-24 md:w-24 rounded-full border-4 lg:border-8 p-2 border-[#e0ff04] object-cover object-top transition duration-500 group-hover:z-30 group-hover:scale-105"
-            />
+              className="relative !m-0 h-14 w-14 md:h-24 md:w-24 rounded-full border-4 lg:border-8 p-2 border-[#e0ff04] transition duration-500 group-hover:z-30 group-hover:scale-105"
+            >
+              <Image
+                src={item.image}
+                alt={item.name}
+                fill
+                className="rounded-full object-cover object-top"
+              />
+            </div>
           ) : (
             <div className="relative h-14 w-14 md:h-24 md:w-24 rounded-full border-4 lg:border-8 p-2 border-[#e0ff04] bg-[#1a1a1a]" />
           )}

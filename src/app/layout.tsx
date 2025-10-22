@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "../components/pages/navbar/navbar";
 import AOSWrapper from "../components/AOSWrapper";
 import SplashCursor from "@/components/SplashCursor";
-import Logo from "@/components/pages/navbar/logo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +32,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AOSWrapper />
-
-        <Logo />
-
         <Navbar />
-
         <SplashCursor />
-
         <main>{children}</main>
       </body>
     </html>

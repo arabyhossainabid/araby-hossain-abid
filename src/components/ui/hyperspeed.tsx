@@ -1,17 +1,9 @@
-import { useEffect, useRef, FC, useMemo } from 'react';
+import { useEffect, useRef, FC } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
-interface UniformValue {
-  value: number | THREE.Vector2 | THREE.Vector3 | THREE.Vector4 | THREE.Color;
-}
-
-interface DistortionUniforms {
-  [key: string]: UniformValue;
-}
-
 interface Distortion {
-  uniforms: DistortionUniforms;
+  uniforms: Record<string, { value: any }>;
   getDistortion: string;
   getJS?: (progress: number, time: number) => THREE.Vector3;
 }
@@ -66,8 +58,8 @@ interface HyperspeedProps {
 }
 
 const defaultOptions: HyperspeedOptions = {
-  onSpeedUp: () => { },
-  onSlowDown: () => { },
+  onSpeedUp: () => {},
+  onSlowDown: () => {},
   distortion: 'turbulentDistortion',
   length: 400,
   roadWidth: 10,
@@ -158,11 +150,11 @@ const distortions: Distortions = {
       const uAmp = mountainUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-        Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+          Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
         nsin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-        nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
+          nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
         nsin(progress * Math.PI * uFreq.z + time) * uAmp.z -
-        nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
+          nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
       );
       const lookAtAmp = new THREE.Vector3(2, 2, 2);
       const lookAtOffset = new THREE.Vector3(0, 0, -5);
@@ -190,9 +182,9 @@ const distortions: Distortions = {
       const uAmp = xyUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-        Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+          Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
         Math.sin(progress * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y -
-        Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
+          Math.sin(movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y,
         0
       );
       const lookAtAmp = new THREE.Vector3(2, 0.4, 1);
@@ -221,9 +213,9 @@ const distortions: Distortions = {
       const uAmp = LongRaceUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.sin(progress * Math.PI * uFreq.x + time) * uAmp.x -
-        Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
+          Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
         Math.sin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-        Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
+          Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
         0
       );
       const lookAtAmp = new THREE.Vector3(1, 1, 0);
@@ -931,20 +923,13 @@ class App {
   renderPass!: RenderPass;
   bloomPass!: EffectPass;
   clock: THREE.Clock;
-  assets: {
-    smaa: {
-      search?: HTMLImageElement;
-      area?: HTMLImageElement;
-    };
-  } = {
-    smaa: {}
-  };
+  assets: Record<string, any>;
   disposed: boolean;
   road: Road;
   leftCarLights: CarLights;
   rightCarLights: CarLights;
   leftSticks: LightsSticks;
-  fogUniforms: Record<string, UniformValue>;
+  fogUniforms: Record<string, { value: any }>;
   fovTarget: number;
   speedUpTarget: number;
   speedUp: number;
@@ -988,12 +973,7 @@ class App {
     };
 
     this.clock = new THREE.Clock();
-    this.assets = {
-      smaa: {
-        search: undefined,
-        area: undefined
-      }
-    };
+    this.assets = {};
     this.disposed = false;
 
     this.road = new Road(this, options);
@@ -1237,11 +1217,10 @@ class App {
 }
 
 const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
-  const mergedOptions = useMemo(() => ({
+  const mergedOptions: HyperspeedOptions = {
     ...defaultOptions,
     ...effectOptions
-  }), [effectOptions]);
-
+  };
   const hyperspeed = useRef<HTMLDivElement>(null);
   const appRef = useRef<App | null>(null);
 

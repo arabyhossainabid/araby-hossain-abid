@@ -10,21 +10,19 @@ export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Type-safe GroupBy
-type GroupBy<T, K extends keyof T> = Record<string, T[]>;
-
-export function groupBy<T extends Record<string, unknown>, K extends keyof T>(
+// Fully type-safe GroupBy using reduce
+export function groupBy<T, K extends keyof T>(
   array: T[],
   key: K
-): GroupBy<T, K> {
-  return array.reduce((acc: GroupBy<T, K>, item: T) => {
-    const keyValue = String(item[key]);
+): Record<string, T[]> {
+  return array.reduce<Record<string, T[]>>((acc, item) => {
+    const keyValue = String(item[key]); // safely convert key to string
     if (!acc[keyValue]) {
       acc[keyValue] = [];
     }
     acc[keyValue].push(item);
     return acc;
-  }, {} as GroupBy<T, K>);
+  }, {}); // no "any", fully typed
 }
 
 export function absoluteUrl(path: string) {

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { CometCard } from "@/components/ui/comet-card";
-import { Star } from "lucide-react"; // স্টার আইকনের জন্য
+import { Star } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -78,7 +79,7 @@ function Customers() {
 
               {/* Profile */}
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   src={t.image}
                   alt={t.name}
                   className="w-12 h-12 rounded-full object-cover"

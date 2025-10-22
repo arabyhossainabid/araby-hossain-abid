@@ -468,9 +468,7 @@ class CarLights {
     );
     const geometry = new THREE.TubeGeometry(curve, 40, 1, 8, false);
 
-    // ✅ Correct instanced geometry creation
     const instanced = new THREE.InstancedBufferGeometry();
-    // Copy all attributes from the TubeGeometry
     for (const name in geometry.attributes) {
       instanced.setAttribute(name, geometry.attributes[name]);
     }

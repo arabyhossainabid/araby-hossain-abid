@@ -9,20 +9,19 @@ function Topnotch() {
     { id: 1, name: "Alice", designation: "Designer", image: "https://randomuser.me/api/portraits/women/65.jpg" },
     { id: 2, name: "Micheal", designation: "Developer", image: "https://randomuser.me/api/portraits/men/32.jpg" },
     { id: 3, name: "Sophia", designation: "Product Manager", image: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { id: 4, name: "", designation: "", image: "" }, // dark placeholder
+    { id: 4, name: "", designation: "", image: "" },
   ];
 
   return (
     <section className="max-w-7xl mx-auto py-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto text-center">
-        {/* Heading */}
+
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
          via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
           Top–<span className="font-bold">notch</span> Frontend,<br />
           delivered with <span className="font-bold">precision</span>
         </h2>
 
-        {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <CometCard>
             <div className="bg-[#111] rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition">
@@ -61,7 +60,6 @@ function Topnotch() {
           </CometCard>
         </div>
 
-        {/* Collaboration Section */}
         <div className="bg-[#111] flex flex-col lg:flex-row justify-between shadow-2xl items-center rounded-2xl p-6 lg:p-16 mt-12">
           <div className="text-left mb-6 max-w-80 w-auto lg:mb-0">
             <h3 className="text-xl md:text-3xl font-semibold mb-4">Collaborate in <br /> real-time</h3>
@@ -70,7 +68,6 @@ function Topnotch() {
             </p>
           </div>
 
-          {/* Avatar Row */}
           <div className="flex items-center gap-4">
             <AnimatedTooltip items={avatars} />
           </div>

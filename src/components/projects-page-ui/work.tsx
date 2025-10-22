@@ -16,19 +16,19 @@ const projects = [
 function Work() {
   return (
     <section className="max-w-5xl mx-auto py-20 px-6">
-      {/* Heading */}
+
       <h2 data-aos="fade-up" data-aos-delay="150" className="text-5xl md:text-7xl pb-10 lg:pb-20 font-medium leading-tight text-start bg-gradient-to-r from-stone-600/100
          via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
         Take<span className="font-bold">a look</span> at<br />
         my <span className="font-bold">past</span> work
       </h2>
 
-      {/* Grid of cards */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((p) => (
           <CometCard key={p.id}>
             <div className="bg-[#111] p-5 rounded-2xl overflow-hidden hover:bg-[#1a1a1a] transition-colors duration-300">
-              {/* Image */}
+
               <div className="relative">
                 <Image
                   src={p.img}
@@ -39,7 +39,6 @@ function Work() {
                 />
               </div>
 
-              {/* Content */}
               <div className="flex justify-between items-center py-4">
                 <div>
                   <h3 className="text-sm font-semibold text-white">{p.title}</h3>

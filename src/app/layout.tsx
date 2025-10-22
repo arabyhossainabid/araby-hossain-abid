@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AOSWrapper />
-        <Navbar /> {/* এখানে Navbar unchanged থাকবে */}
+        <Navbar />
         <SplashCursor />
         <main>{children}</main>
       </body>

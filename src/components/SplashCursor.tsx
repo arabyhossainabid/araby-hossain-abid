@@ -799,7 +799,6 @@ export default function SplashCursor({
 
   gl.disable(gl.BLEND);
 
-  // --- Ensure rgba is initialized ---
   if (!rgba) throw new Error("rgba texture format is not initialized");
 
   if (!dye) {
@@ -808,7 +807,6 @@ export default function SplashCursor({
     dye = resizeDoubleFBO(dye, dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering);
   }
 
-  // --- Ensure rg is initialized ---
   if (!rg) throw new Error("rg texture format is not initialized");
 
   if (!velocity) {

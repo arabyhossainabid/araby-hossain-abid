@@ -6,7 +6,7 @@ import { CometCard } from "../ui/comet-card";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 
 function AboutTopNotch() {
-  const router = useRouter(); // useRouter initialize
+  const router = useRouter();
 
   const avatars = [
     { id: 1, name: "Alice", designation: "Designer", image: "https://randomuser.me/api/portraits/women/65.jpg" },
@@ -16,13 +16,13 @@ function AboutTopNotch() {
   ];
 
   const handleStartProject = () => {
-    router.push("/projects"); // navigate to /projects
+    router.push("/projects");
   };
 
   return (
     <section className="max-w-6xl mx-auto py-16 px-6 md:px-12 lg:px-20">
       <div className="max-w-6xl mx-auto text-center">
-        {/* Heading */}
+
         <div
           data-aos="fade-up" data-aos-delay="150"
           className="flex lg:flex-row flex-col justify-between items-center">
@@ -32,7 +32,7 @@ function AboutTopNotch() {
           </h2>
           <button
             data-aos="fade-up" data-aos-delay="150"
-            onClick={handleStartProject} // button click handler
+            onClick={handleStartProject}
             className="px-6 py-3 text-lg font-semibold rounded-full bg-[#deff00] text-black
                        transition-all duration-300 active:scale-95
                        shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00]"
@@ -41,7 +41,7 @@ function AboutTopNotch() {
           </button>
         </div>
 
-        {/* Feature Cards */}
+
         <div
           data-aos="fade-up" data-aos-delay="150"
           className="grid md:grid-cols-2 gap-6 mt-12">
@@ -70,7 +70,7 @@ function AboutTopNotch() {
           </CometCard>
         </div>
 
-        {/* Collaboration Section */}
+
         <div data-aos="fade-up" data-aos-delay="150" className="bg-[#111] flex flex-col lg:flex-row justify-between shadow-2xl items-center rounded-2xl p-6 lg:p-16 mt-12">
           <div data-aos="fade-up" data-aos-delay="150" className="text-left mb-6 max-w-80 w-auto lg:mb-0">
             <h3 data-aos="fade-up" data-aos-delay="150" className="text-xl md:text-3xl font-semibold mb-4">Collaborate <br /> Seamlessly in Real-Time</h3>

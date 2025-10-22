@@ -10,13 +10,12 @@ export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Fully type-safe GroupBy using reduce
 export function groupBy<T, K extends keyof T>(
   array: T[],
   key: K
 ): Record<string, T[]> {
   return array.reduce<Record<string, T[]>>((acc, item) => {
-    const keyValue = String(item[key]); // safely convert key to string
+    const keyValue = String(item[key]);
     if (!acc[keyValue]) {
       acc[keyValue] = [];
     }

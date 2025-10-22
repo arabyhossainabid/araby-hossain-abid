@@ -15,13 +15,12 @@ export default function AboutBanner() {
     router.push("/blog");
   };
 
-  // reusable gradient style
   const gradientText =
     "bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100 bg-clip-text text-transparent";
 
   return (
     <section className="max-w-6xl mx-auto flex border-b border-gray-600/30 flex-col items-center justify-center py-20">
-      {/* Headline */}
+
       <div data-aos="fade-up" data-aos-delay="100">
         <h2
           className={`text-4xl md:text-5xl font-bold leading-tight text-center ${gradientText}`}
@@ -31,7 +30,7 @@ export default function AboutBanner() {
         </h2>
       </div>
 
-      {/* Sub text */}
+
       <div data-aos="fade-up" data-aos-delay="200">
         <p className="mt-4 max-w-xl text-center text-gray-400">
           I turn your ideas into engaging, responsive web applications with
@@ -39,7 +38,7 @@ export default function AboutBanner() {
         </p>
       </div>
 
-      {/* Buttons */}
+
       <div
         data-aos="fade-up"
         data-aos-delay="300"
@@ -62,9 +61,9 @@ export default function AboutBanner() {
         </InteractiveHoverButton>
       </div>
 
-      {/* Three images */}
+
       <div className="mt-16 flex flex-col md:flex-row items-center gap-8">
-        {/* Left image */}
+
         <div
           data-aos="fade-down-right"
           className="w-52 h-80 rounded-full overflow-hidden"
@@ -78,7 +77,7 @@ export default function AboutBanner() {
           />
         </div>
 
-        {/* Middle image */}
+
         <div
           data-aos="fade-up"
           className="w-80 h-80 rounded-2xl overflow-hidden"
@@ -92,7 +91,7 @@ export default function AboutBanner() {
           />
         </div>
 
-        {/* Right image */}
+
         <div
           data-aos="fade-down-left"
           className="w-52 h-80 rounded-full overflow-hidden"

@@ -16,7 +16,7 @@ export const StickyScroll = ({
   contentClassName?: string;
 }) => {
   const [activeCard, setActiveCard] = useState(0);
-  const ref = useRef<HTMLDivElement>(null); // replaced any with HTMLDivElement
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end start"],
@@ -52,7 +52,7 @@ export const StickyScroll = ({
     setBackgroundGradient(
       linearGradients[activeCard % linearGradients.length]
     );
-  }, [activeCard, linearGradients]); // added linearGradients to dependency array
+  }, [activeCard, linearGradients]);
 
   return (
     <motion.div

@@ -111,7 +111,7 @@ const CollisionMechanism = React.forwardRef<
 
     const animationInterval = setInterval(checkCollision, 50);
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected, containerRef, parentRef, isClient]); // ✅ added parentRef
+  }, [cycleCollisionDetected, containerRef, parentRef, isClient]);
 
   useEffect(() => {
     if (!isClient) return;

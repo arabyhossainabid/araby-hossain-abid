@@ -17,7 +17,6 @@ export const BackgroundRippleEffect = ({
   } | null>(null);
   const [rippleKey, setRippleKey] = useState(0);
 
-  // ✅ Properly typed ref for a div element
   const ref = useRef<HTMLDivElement>(null);
 
   return (
@@ -55,7 +54,7 @@ type DivGridProps = {
   className?: string;
   rows: number;
   cols: number;
-  cellSize: number; // in pixels
+  cellSize: number;
   borderColor: string;
   fillColor: string;
   clickedCell: { row: number; col: number } | null;

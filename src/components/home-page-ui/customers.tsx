@@ -42,7 +42,7 @@ const testimonials = [
 function Customers() {
   return (
     <section className="max-w-6xl mx-auto py-16 px-6 md:px-12 lg:px-20 text-white">
-      {/* Heading */}
+
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-medium leading-tight bg-gradient-to-r from-stone-800/100 via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
           My<span className="font-bold">clients</span> think
@@ -51,12 +51,12 @@ function Customers() {
         </h2>
       </div>
 
-      {/* Cards */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {testimonials.map((t, i) => (
           <CometCard key={i}>
             <div className="bg-[#111] rounded-2xl p-6 text-left hover:bg-[#1a1a1a] transition-colors duration-300">
-              {/* Stars */}
+
               <div className="flex mb-4">
                 {Array.from({ length: 5 }).map((_, idx) => {
                   const fullStar = idx + 1 <= Math.floor(t.rating);
@@ -77,18 +77,18 @@ function Customers() {
                 })}
               </div>
 
-              {/* Review */}
+
               <p className="text-gray-300 text-sm leading-relaxed mb-6">
                 {t.review}
               </p>
 
-              {/* Profile */}
+
               <div className="flex items-center gap-4">
                 <Image
                   src={t.image}
                   alt={t.name}
-                  width={48} // Tailwind w-12
-                  height={48} // Tailwind h-12
+                  width={48}
+                  height={48}
                   className="rounded-full object-cover"
                 />
                 <div>

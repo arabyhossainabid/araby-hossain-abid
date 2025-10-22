@@ -10,8 +10,6 @@ const techLogos = [
   { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
 ];
 
-// Alternative with image sources
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const imageLogos = [
   { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
   { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
@@ -22,7 +20,7 @@ function HeroSection() {
   return (
     <section className="container mx-auto max-w-7xl my-40 lg:mt-60 mb-10 bg-gradient-to-br overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* Title */}
+
         <div className="text-center mx-auto max-w-6xl w-auto mb-12">
           <h2 className="text-3xl md:text-6xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
      via-gray-100 to-stone-800/100 bg-clip-text text-transparent mb-10">

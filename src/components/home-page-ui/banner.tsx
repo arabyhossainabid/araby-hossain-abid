@@ -18,7 +18,7 @@ function Banner() {
 
   return (
     <section data-aos="fade-up" data-aos-delay="0" className="relative max-w-screen max-h-screen py-32 overflow-hidden">
-      {/* Background */}
+
       <div className="absolute inset-0 -z-10 max-w-screen max-h-screen">
         <Hyperspeed
           effectOptions={{
@@ -59,9 +59,9 @@ function Banner() {
         />
       </div>
 
-      {/* Content Grid */}
+
       <div className="relative z-10 container mx-auto max-w-screen max-h-screen flex justify-around items-center px-6">
-        {/* Left Content */}
+
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-6">
 
           <h2 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100 bg-clip-text text-transparent">

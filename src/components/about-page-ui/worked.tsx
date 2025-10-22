@@ -1,4 +1,4 @@
-// Worked.js
+
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -60,7 +60,7 @@ function Worked() {
               flex flex-col sm:flex-row sm:justify-between sm:items-center
               hover:bg-neutral-800 transition-colors"
             >
-              {/* Content */}
+
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-10 w-full">
                 <div>
                   <p
@@ -82,7 +82,7 @@ function Worked() {
                 </div>
               </div>
 
-              {/* Arrow button */}
+
               <button
                 data-aos="fade-up"
                 data-aos-delay="150"

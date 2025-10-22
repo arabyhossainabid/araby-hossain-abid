@@ -24,7 +24,6 @@ export default function SlideScale() {
       setCurrent(api.selectedScrollSnap() + 1);
     });
 
-    // Auto switch প্রতি 3 সেকেন্ডে
     const interval = setInterval(() => {
       api.scrollNext();
     }, 3000);

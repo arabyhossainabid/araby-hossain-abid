@@ -19,7 +19,7 @@ export default function AccordionsPages() {
   return (
     <section className="max-w-5xl mx-auto py-20">
       <div className="grid md:grid-cols-2 gap-16 mx-3 items-start">
-        {/* Left column */}
+
         <div className="mx-auto text-center md:text-start">
           <h2
             className="text-4xl md:text-5xl font-bold leading-tight
@@ -45,7 +45,7 @@ export default function AccordionsPages() {
           </button>
         </div>
 
-        {/* Right column */}
+
         <div>
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[

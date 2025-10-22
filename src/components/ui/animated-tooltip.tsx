@@ -71,7 +71,7 @@ export const AnimatedTooltip = ({
             <div className="relative h-14 w-14 md:h-24 md:w-24 rounded-full border-4 lg:border-8 p-2 border-[#e0ff04] bg-[#1a1a1a]" />
           )}
 
-          {/* Tooltip */}
+
           <AnimatePresence>
             {hoveredIndex === item.id && item.image && (
               <motion.div

@@ -18,6 +18,5 @@ export function generateBreadcrumbs(pathname: string): TBreadcrumb[] {
       isCurrent: index === segments.length - 1,
     };
   });
-  // if need default breadcrumb for root path just replace return [{ label: "Home", href: "/" }, ...breadcrumbs]
   return [...breadcrumbs];
 }

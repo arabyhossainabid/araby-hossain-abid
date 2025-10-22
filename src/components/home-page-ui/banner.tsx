@@ -4,7 +4,7 @@ import React from "react";
 import { FlipWords } from "../ui/flip-words";
 import { useRouter } from "next/navigation";
 import Hyperspeed from "../ui/hyperspeed";
-import person from "../../../public/image/sdasd.avif";
+import person from "../../../public/image/BannerImage.svg";
 import Image from "next/image";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 

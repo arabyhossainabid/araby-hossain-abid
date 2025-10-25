@@ -64,7 +64,7 @@ function Topnotch() {
           <div className="text-left mb-6 max-w-80 w-auto lg:mb-0">
             <h3 className="text-xl md:text-3xl font-semibold mb-4">Collaborate in <br /> real-time</h3>
             <p className="text-gray-400 text-sm max-w-lg">
-              Work closely with me to design and develop responsive, modern, and interactive frontend solutions that perfectly match your vision.
+             Work with me to design and develop modern, responsive, and engaging web interfaces using React, Next.js, and Tailwind CSS — ensuring seamless collaboration and bringing your ideas to life.
             </p>
           </div>
 

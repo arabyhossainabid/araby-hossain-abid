@@ -5,12 +5,10 @@ import { ArrowUpRight } from "lucide-react";
 import { CometCard } from "../ui/comet-card";
 
 const projects = [
-  { id: 1, title: "Portfolio Website", subtitle: "Next.js / Tailwind / Animation", img: "/image/coding.svg" },
-  { id: 2, title: "Recipes Bookmark App", subtitle: "React / Context API / JSON Data", img: "/image/coding.svg" },
-  { id: 3, title: "Career Hub", subtitle: "Job Search Platform / Responsive UI", img: "/image/coding.svg" },
-  { id: 4, title: "Billing Form", subtitle: "NextUI / Tailwind / Validation", img: "/image/coding.svg" },
-  { id: 5, title: "KnowMe Section", subtitle: "Dynamic About Page / Motion Effects", img: "/image/coding.svg" },
-  { id: 6, title: "Error Page", subtitle: "Custom 404 / Tailwind / Responsive", img: "/image/coding.svg" },
+  { id: 1, title: "Mojito", subtitle: "Dynamic About Page / Motion Effects", img: "/image/gsap.svg" },
+  { id: 2, title: "Career Hub", subtitle: "Job Search Platform / Responsive UI", img: "/image/dream-job.svg" },
+  { id: 3, title: "Medical Service", subtitle: "NextUI / Tailwind / Validation", img: "/image/medical-service.svg" },
+  { id: 4, title: "Portfolio Website", subtitle: "Next.js / Tailwind / Animation", img: "/image/cover.svg" },
 ];
 
 function Work() {

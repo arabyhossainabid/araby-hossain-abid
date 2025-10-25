@@ -69,7 +69,7 @@ export default function AboutBanner() {
           className="w-52 h-80 rounded-full overflow-hidden"
         >
           <Image
-            src="/image/coding.svg"
+            src="/image/divverse.svg"
             alt="Frontend Development Left"
             width={320}
             height={240}
@@ -83,7 +83,7 @@ export default function AboutBanner() {
           className="w-80 h-80 rounded-2xl overflow-hidden"
         >
           <Image
-            src="/image/coding.svg"
+            src="/image/front-end.svg"
             alt="Frontend Development Middle"
             width={320}
             height={240}
@@ -97,7 +97,7 @@ export default function AboutBanner() {
           className="w-52 h-80 rounded-full overflow-hidden"
         >
           <Image
-            src="/image/coding.svg"
+            src="/image/modern.svg"
             alt="Frontend Development Right"
             width={320}
             height={240}

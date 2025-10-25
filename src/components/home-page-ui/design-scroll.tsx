@@ -22,7 +22,7 @@ function DesignScroll() {
     {
       title: "Creative UI & Animations",
       description:
-        "I design interactive and visually appealing interfaces with smooth animations and micro-interactions, combining creativity with usability to enhance the user journey.",
+        "I design interactive and visually appealing interfaces with smooth animations and micro-interactions, using GSAP to create dynamic motion that enhances the user journey by combining creativity with usability.",
       content: (
         <Image
           src="/image/animation.svg"

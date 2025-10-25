@@ -9,7 +9,6 @@ import HeroSection from "@/components/home-page-ui/hero-section";
 import Topnotch from "@/components/home-page-ui/top–notch";
 import ShowcaseCarousel from "@/components/home-page-ui/showcase-carousel";
 import Customers from "@/components/home-page-ui/customers";
-import Management from "@/components/home-page-ui/management";
 import DesignScroll from "@/components/home-page-ui/design-scroll";
 import SomthingSection from "@/components/home-page-ui/somthing-section";
 
@@ -48,10 +47,6 @@ export default function Home() {
 
       <div data-aos="fade-up" data-aos-delay="150">
         <Customers />
-      </div>
-
-      <div data-aos="fade-up" data-aos-delay="150">
-        <Management />
       </div>
 
       <div data-aos="fade-up" data-aos-delay="150">

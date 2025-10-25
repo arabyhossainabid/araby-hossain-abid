@@ -1,6 +1,8 @@
 "use client";
 import React from 'react';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import { LuFlower } from "react-icons/lu";
+
 import LogoLoop from '../LogoLoop';
 
 const techLogos = [
@@ -8,6 +10,7 @@ const techLogos = [
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
   { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <LuFlower /> , title: "GSAP", href: "https://gsap.com/" },
 ];
 
 const imageLogos = [

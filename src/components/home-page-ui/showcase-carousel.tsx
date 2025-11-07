@@ -20,7 +20,7 @@ export default function SlideScale() {
     { id: 2, image: "/image/cover.svg", link: "https://my-portfolio-sage-two.vercel.app/" },
     { id: 3, image: "/image/medical-service.svg", link: "/" },
     { id: 4, image: "/image/dream-job.svg", link: "https://react-career-hub-three.vercel.app/" },
-    { id: 5, image: "/image/slide5.jpg", link: "https://www.tailwindcss.com" },
+    { id: 5, image: "/image/gsap-spylt.svg", link: "https://spylt-bay.vercel.app/" },
   ];
 
   React.useEffect(() => {

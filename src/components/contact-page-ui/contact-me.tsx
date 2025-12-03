@@ -2,24 +2,42 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Facebook } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
     const contactInfo = [
         { icon: Mail, title: "Email", details: "arabyhossainabid@gmail.com", link: "mailto:arabyhossainabid@gmail.com" },
-        { icon: Phone, title: "Phone", details: "+880 123 456 7890", link: "tel:+8801234567890" },
-        { icon: MapPin, title: "Location", details: "Dhaka, Bangladesh", link: "#" },
+        { icon: Phone, title: "Phone", details: "+880 192 380 7556", link: "tel:+8801923807556" },
+        { icon: MapPin, title: "Location", details: "Dhaka, Bangladesh", link: "https://www.google.com/maps/place/Dhaka,+Bangladesh" },
     ];
 
     const socialLinks = [
-        { icon: Github, link: "#" },
-        { icon: Linkedin, link: "#" },
-        { icon: Twitter, link: "#" },
+        { icon: Github, link: "https://github.com/arabyhossainabid" },
+        { icon: Linkedin, link: "https://www.linkedin.com/in/araby-hossain-abid-6790a5318/" },
+        { icon: Facebook, link: "https://www.facebook.com/araby.hossain.abid" },
     ];
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        e.currentTarget,
+        "YOUR_PUBLIC_KEY" // <- replace this with the correct one from dashboard
+        )
+
+        .then(() => {
+            alert("Message sent successfully!");
+            e.currentTarget.reset();
+        }, (error) => {
+            alert("Oops! Something went wrong: " + error.text);
+        });
+    };
 
     return (
         <section className="min-h-screen flex items-center justify-center bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
@@ -47,7 +65,7 @@ const ContactMe = () => {
                     <div className="space-y-4">
                         {contactInfo.map((item, i) => (
                             <motion.a
-                                key={i} href={item.link}
+                                key={i} href={item.link} target={item.title === "Location" ? "_blank" : undefined} rel="noreferrer"
                                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 + i * 0.1 }}
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#deff00]/50 transition-all group"
                             >
@@ -65,7 +83,7 @@ const ContactMe = () => {
                     <div className="flex gap-4 pt-4">
                         {socialLinks.map((social, i) => (
                             <motion.a
-                                key={i} href={social.link}
+                                key={i} href={social.link} target="_blank" rel="noreferrer"
                                 whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.95 }}
                                 className="p-3 rounded-full bg-white/5 border border-white/10 hover:border-[#deff00] hover:text-[#deff00] text-gray-300 transition-colors"
                             >
@@ -85,11 +103,7 @@ const ContactMe = () => {
                             <CardTitle className="text-2xl text-white">Send me a message</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <form className="space-y-4" onSubmit={(e) => {
-                                e.preventDefault();
-                                alert("Message sent successfully! (This is a demo)");
-                                (e.target as HTMLFormElement).reset();
-                            }}>
+                            <form className="space-y-4" onSubmit={sendEmail}>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-400">Name</label>

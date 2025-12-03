@@ -15,7 +15,6 @@ function Topnotch() {
     return (
         <section className="max-w-7xl mx-auto py-16 px-6 md:px-12 lg:px-20">
             <div className="max-w-6xl mx-auto text-center">
-
                 <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
          via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
                     Top–<span className="font-bold">notch</span> Frontend,<br />

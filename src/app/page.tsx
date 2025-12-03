@@ -1,31 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import Banner from "@/components/home-page-ui/banner";
 import HeroSection from "@/components/home-page-ui/hero-section";
-import Topnotch from "@/components/home-page-ui/top–notch";
 import ShowcaseCarousel from "@/components/home-page-ui/showcase-carousel";
 import Customers from "@/components/home-page-ui/customers";
 import DesignScroll from "@/components/home-page-ui/design-scroll";
 import SomthingSection from "@/components/home-page-ui/somthing-section";
+import Topnotch from "@/components/home-page-ui/top–notch";
 
 export default function Home() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 200,
-      easing: "ease-in-out",
-    });
-  }, []);
-
   return (
     <section className="overflow-hidden">
 
-      <div >
+      <div>
         <Banner />
       </div>
 

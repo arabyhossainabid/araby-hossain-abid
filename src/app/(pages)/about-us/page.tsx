@@ -4,9 +4,16 @@ import AccordionsPages from '@/components/about-page-ui/accordions-page'
 import NumberSection from '@/components/about-page-ui/number-section'
 import Worked from '@/components/about-page-ui/worked'
 import SomthingSection from '@/components/home-page-ui/somthing-section'
+import { Metadata } from 'next'
 import React from 'react'
 
-function page() {
+export const metadata: Metadata = {
+  title: "About - Araby Hossain Abid",
+  description: "Learn more about my journey as a full-stack developer, my skills, experience, and passion for building modern web applications.",
+  keywords: ["About", "Developer", "Skills", "Experience", "Portfolio"],
+};
+
+export default function AboutPage() {
   return (
     <section>
 
@@ -14,28 +21,26 @@ function page() {
         <AboutBanner />
       </div>
 
-      <div >
+      <div>
         <NumberSection />
       </div>
 
-      <div >
+      <div>
         <AboutTopNotch />
       </div>
 
-      <div >
+      <div>
         <Worked />
       </div>
 
-      <div >
+      <div>
         <AccordionsPages />
       </div>
 
-      <div >
+      <div>
         <SomthingSection />
       </div>
 
     </section>
   )
 }
-
-export default page

@@ -72,6 +72,7 @@ const BlogList = () => {
                     </p>
                 </motion.div>
 
+
                 {/* Featured Post (User's Description) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

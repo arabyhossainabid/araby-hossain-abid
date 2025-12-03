@@ -36,8 +36,12 @@ const ContactMe = () => {
                     className="flex flex-col justify-center space-y-8"
                 >
                     <div className="space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white">Let's <span className="text-[#deff00]">Connect</span></h2>
-                        <p className="text-gray-400 text-lg">Have a project in mind? I'm always open to discussing new ideas.</p>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
+                            Let&apos;s <span className="text-[#deff00]">Connect</span>
+                        </h2>
+                        <p className="text-gray-400 text-lg">
+                            Have a project in mind? I&apos;m always open to discussing new ideas.
+                        </p>
                     </div>
 
                     <div className="space-y-4">

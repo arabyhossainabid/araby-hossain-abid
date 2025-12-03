@@ -1,14 +1,14 @@
 
-export const reportWebVitals = (metric: any) => {
+export const reportWebVitals = (_metric: unknown) => {
     if (process.env.NODE_ENV === 'production') {
     }
 };
 
-export const lazyLoad = (importFunc: () => Promise<any>) => {
+export const lazyLoad = <T = unknown>(importFunc: () => Promise<T>): Promise<T> => {
     return importFunc();
 };
 
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
     func: T,
     wait: number
 ): (...args: Parameters<T>) => void {
@@ -25,7 +25,7 @@ export function debounce<T extends (...args: any[]) => any>(
     };
 }
 
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
     func: T,
     limit: number
 ): (...args: Parameters<T>) => void {
@@ -40,5 +40,5 @@ export function throttle<T extends (...args: any[]) => any>(
     };
 }
 
-export function sendToAnalytics(metric: any) {
+export function sendToAnalytics(_metric: unknown) {
 }

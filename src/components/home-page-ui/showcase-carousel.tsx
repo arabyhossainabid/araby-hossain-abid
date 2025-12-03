@@ -43,10 +43,9 @@ export default function SlideScale() {
     <section className="mx-auto max-w-7xl my-20 lg:my-40">
       <div>
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100 via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
-          Providing <span className="font-bold">stellar</span> results
-          <br />
-          for <span className="font-bold">every client.</span>
+          <span className="font-bold">Projects</span>
         </h2>
+
       </div>
 
       <div className="mt-10">

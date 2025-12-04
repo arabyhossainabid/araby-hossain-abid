@@ -1,17 +1,18 @@
-import BlogList from '@/components/blog-page-ui/blog-list'
-import { Metadata } from 'next'
-import React from 'react'
+"use client";
 
-export const metadata: Metadata = {
-  title: "Blog - Araby Hossain Abid",
-  description: "Insights, tutorials, and thoughts on modern web development, full-stack technologies, and software engineering.",
-  keywords: ["Blog", "Web Development", "Programming", "Tutorials", "Tech"],
-};
+import { motion } from "motion/react";
+import BlogList from '@/components/blog-page-ui/blog-list';
 
 export default function BlogPage() {
   return (
-    <main>
-      <BlogList />
+    <main className="overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <BlogList />
+      </motion.div>
     </main>
-  )
+  );
 }

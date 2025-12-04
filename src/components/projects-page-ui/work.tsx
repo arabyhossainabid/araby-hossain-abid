@@ -1,54 +1,127 @@
 "use client";
 import React from "react";
+import { motion } from "motion/react";
+import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { CometCard } from "../ui/comet-card";
+import { Button } from "@/components/ui/button";
 
 const projects = [
-  { id: 1, title: "Mojito", subtitle: "Dynamic About Page / Motion Effects", img: "/image/gsap.svg" },
-  { id: 2, title: "Career Hub", subtitle: "Job Search Platform / Responsive UI", img: "/image/dream-job.svg" },
-  { id: 3, title: "Medical Service", subtitle: "NextUI / Tailwind / Validation", img: "/image/medical-service.svg" },
-  { id: 4, title: "Portfolio Website", subtitle: "Next.js / Tailwind / Animation", img: "/image/cover.svg" },
+  {
+    id: 1,
+    title: "Mojito",
+    subtitle: "Dynamic About Page / Motion Effects",
+    img: "/image/gsap.svg",
+    link: "https://mojito-ecru.vercel.app/",
+    tags: ["GSAP", "React", "Animation"]
+  },
+  {
+    id: 2,
+    title: "Career Hub",
+    subtitle: "Job Search Platform / Responsive UI",
+    img: "/image/dream-job.svg",
+    link: "https://react-career-hub-three.vercel.app/",
+    tags: ["React", "UI/UX", "Platform"]
+  },
+  {
+    id: 3,
+    title: "Medical Service",
+    subtitle: "NextUI / Tailwind / Validation",
+    img: "/image/medical-service.svg",
+    link: "/",
+    tags: ["Next.js", "Healthcare", "Forms"]
+  },
+  {
+    id: 4,
+    title: "Portfolio Website",
+    subtitle: "Next.js / Tailwind / Animation",
+    img: "/image/cover.svg",
+    link: "https://my-portfolio-sage-two.vercel.app/",
+    tags: ["Portfolio", "Next.js", "Design"]
+  },
 ];
 
 function Work() {
   return (
-    <section className="max-w-5xl mx-auto py-20 px-6">
+    <section className="bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#deff00]/5 rounded-full blur-[100px] opacity-30" />
+        <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[100px] opacity-20" />
+      </div>
 
-      <h2 data-aos="fade-up" data-aos-delay="150" className="text-5xl md:text-7xl pb-10 lg:pb-20 font-medium leading-tight text-start bg-gradient-to-r from-stone-600/100
-         via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
-        Take<span className="font-bold">a look</span> at<br />
-        my <span className="font-bold">past</span> work
-      </h2>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+            <Sparkles className="w-4 h-4 text-[#deff00]" />
+            <span className="text-sm text-gray-300">Portfolio</span>
+          </div>
 
+          <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
+            Take <span className="text-[#deff00]">a Look</span> at
+            <br />
+            My <span className="text-[#deff00]">Past</span> Work
+          </h2>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((p) => (
-          <CometCard key={p.id}>
-            <div className="bg-[#111] p-5 rounded-2xl overflow-hidden hover:bg-[#1a1a1a] transition-colors duration-300">
-
-              <div className="relative">
-                <Image
-                  src={p.img}
-                  alt={p.title}
-                  width={500}
-                  height={400}
-                  className="w-full h-auto object-cover rounded-t-2xl"
-                />
-              </div>
-
-              <div className="flex justify-between items-center py-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-white">{p.title}</h3>
-                  <p className="text-xs text-gray-400">{p.subtitle}</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-white/5 border-white/10 overflow-hidden hover:border-[#deff00]/30 transition-all duration-300 hover:-translate-y-2 group">
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={project.img}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-3 pb-6">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="bg-[#deff00] text-black hover:bg-[#deff00]/90">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    </a>
+                    <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  </div>
                 </div>
-                <button className="bg-[#1a1a1a] border border-gray-700 w-8 h-8 rounded-full flex items-center justify-center text-white">
-                  <ArrowUpRight size={16} />
-                </button>
-              </div>
-            </div>
-          </CometCard>
-        ))}
+
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#deff00] transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4">{project.subtitle}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-[#deff00]/10 text-[#deff00] text-xs font-medium border border-[#deff00]/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

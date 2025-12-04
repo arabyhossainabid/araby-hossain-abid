@@ -1,57 +1,161 @@
 "use client";
 import React from 'react';
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
-import { LuFlower } from "react-icons/lu";
+import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPostgresql, SiDocker, SiAmazon } from 'react-icons/si';
+import { Sparkles, Download, Play, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-import LogoLoop from '../LogoLoop';
-
-const techLogos = [
-  { node: <SiReact />, title: "React", href: "https://react.dev" },
-  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { node: <LuFlower /> , title: "GSAP", href: "https://gsap.com/" },
-];
-
-const imageLogos = [
-  { src: "/logos/company1.png", alt: "Company 1", href: "https://company1.com" },
-  { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
-  { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
+const techStack = [
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, name: "Next.js", color: "#fff" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiAmazon, name: "AWS", color: "#FF9900" },
 ];
 
 function HeroSection() {
+  const router = useRouter();
+
+  const handleViewWork = () => {
+    router.push('/projects');
+  };
+
+  const handleDownloadCV = () => {
+    window.open('/cv/araby-hossain-abid-cv.pdf', '_blank');
+  };
+
   return (
-    <section className="container mx-auto max-w-7xl my-40 lg:mt-60 mb-10 bg-gradient-to-br overflow-hidden">
-      <div className="container mx-auto px-4">
-
-        <div className="text-center mx-auto max-w-6xl w-auto mb-12">
-          <h2 className="text-3xl md:text-6xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100
-     via-gray-100 to-stone-800/100 bg-clip-text text-transparent mb-10">
-            Elevate your <span className="font-bold">web</span> presence
-            with modern <span className="font-bold">frontend</span> experiences.
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-400 mb-10">
-            Passionate Frontend Developer skilled in React.js, Next.js, and Tailwind CSS. Adept at building
-            responsive, user-friendly web applications with clean and efficient code. Seeking an opportunity to
-            apply creativity and technical expertise to deliver seamless user experiences.
-          </p>
-        </div>
-
-        <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
-          <LogoLoop
-            logos={techLogos}
-            speed={120}
-            direction="left"
-            logoHeight={48}
-            gap={40}
-            pauseOnHover
-            scaleOnHover
-            fadeOut
-            fadeOutColor="#0d0d0d"
-            ariaLabel="Technology partners"
-          />
-        </div>
+    <section className="min-h-screen flex items-center justify-center bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
+      {/* Advanced Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#deff0008_1px,transparent_1px),linear-gradient(to_bottom,#deff0008_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#deff00]/10 rounded-full blur-[150px] opacity-40 animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-[150px] opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
+
+      <div className="max-w-7xl w-full relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#deff00]/20 to-purple-500/20 border border-[#deff00]/30 mb-8 backdrop-blur-sm"
+          >
+            <Sparkles className="w-4 h-4 text-[#deff00] animate-pulse" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-[#deff00] to-white bg-clip-text text-transparent">
+              Full-Stack Developer & UI/UX Enthusiast
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[1.1]"
+          >
+            Crafting Digital
+            <br />
+            <span className="bg-gradient-to-r from-[#deff00] via-yellow-300 to-[#deff00] bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+              Masterpieces
+            </span>
+            <br />
+            with Code
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-12 leading-relaxed"
+          >
+            I'm <span className="text-white font-bold">Araby Hossain Abid</span>, a passionate full-stack developer
+            specializing in building exceptional digital experiences with
+            <span className="text-[#deff00] font-semibold"> React, Next.js, TypeScript</span>, and modern technologies.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-4 justify-center mb-16"
+          >
+            <Button
+              onClick={handleViewWork}
+              className="group px-8 py-6 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_40px_0px_#deff00] transition-all duration-300 text-lg"
+            >
+              <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              View My Work
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              onClick={handleDownloadCV}
+              className="group px-8 py-6 bg-white/5 text-white font-semibold rounded-full border-2 border-white/10 hover:bg-white/10 hover:border-[#deff00]/50 transition-all duration-300 text-lg backdrop-blur-sm"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Download CV
+            </Button>
+          </motion.div>
+        </div>
+
+        {/* Tech Stack Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="text-center mb-10">
+            <p className="text-gray-500 text-sm uppercase tracking-[0.3em] font-bold">Tech Stack Mastery</p>
+          </div>
+
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-6">
+            {techStack.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.08 }}
+                whileHover={{ scale: 1.15, y: -8, rotate: 5 }}
+                className="group relative"
+              >
+                <div className="flex flex-col items-center gap-3 p-4 md:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#deff00]/40 transition-all backdrop-blur-sm hover:bg-white/10">
+                  <div className="relative">
+                    <tech.icon
+                      className="w-10 h-10 md:w-12 md:h-12 transition-all duration-300 group-hover:drop-shadow-[0_0_10px_currentColor]"
+                      style={{ color: tech.color }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-full blur-xl" />
+                  </div>
+                  <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors text-center">
+                    {tech.name}
+                  </span>
+                </div>
+
+                {/* Tooltip */}
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap backdrop-blur-md border border-white/10">
+                  {tech.name}
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 border-r border-b border-white/10" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      <style jsx>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
     </section>
   );
 }

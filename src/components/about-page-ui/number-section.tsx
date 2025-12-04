@@ -1,46 +1,41 @@
-"use client"
+"use client";
 
-import React from "react"
-import { NumberTicker } from "@/components/ui/number-ticker"
+import React from "react";
+import { motion } from "motion/react";
+import { TrendingUp, Users, Award } from "lucide-react";
 
 export default function NumberSection() {
   const stats = [
-    { value: 60, suffix: "+", label: "Happy customers" },
-    { value: 8, suffix: "K+", label: "Hours spent on craft" },
-    { value: 4.6, suffix: "", label: "Review rate", decimalPlaces: 1 },
-  ]
+    { icon: Users, value: 60, suffix: "+", label: "Happy Customers", color: "#deff00" },
+    { icon: TrendingUp, value: 8, suffix: "K+", label: "Hours on Craft", color: "#deff00" },
+    { icon: Award, value: 4.9, suffix: "", label: "Review Rate", decimalPlaces: 1, color: "#deff00" },
+  ];
 
   return (
-    <section className="w-full py-10">
-      <div className="mx-auto max-w-5xl flex justify-center gap-16 text-center">
-        {stats.map((stat, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center"
-          >
-            <h3
-              className="text-4xl font-bold md:text-5xl
-              bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100
-              bg-clip-text text-transparent"
-              data-aos="fade-up"
+    <section className="bg-[#0d0d0d] py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-[#deff00]/30 transition-all duration-300 hover:-translate-y-2 group"
             >
-              <NumberTicker
-                value={stat.value}
-                decimalPlaces={stat.decimalPlaces ?? 0}
-              />
-              {stat.suffix}
-            </h3>
-            <p
-              className="mt-2 text-sm
-              bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100
-              bg-clip-text text-transparent"
-              data-aos="fade-up"
-            >
-              {stat.label}
-            </p>
-          </div>
-        ))}
+              <div className="w-16 h-16 rounded-full bg-[#deff00]/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-[#deff00] transition-colors">
+                <stat.icon className="w-8 h-8 text-[#deff00] group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-5xl md:text-6xl font-bold text-[#deff00] mb-2">
+                {stat.value}
+                {stat.suffix}
+              </h3>
+              <p className="text-gray-400 text-lg">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
-  )
+  );
 }

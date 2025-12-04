@@ -1,30 +1,39 @@
-import ShowcaseCarousel from '@/components/home-page-ui/showcase-carousel'
-import SomthingSection from '@/components/home-page-ui/somthing-section'
-import Work from '@/components/projects-page-ui/work'
-import { Metadata } from 'next'
-import React from 'react'
+"use client";
 
-export const metadata: Metadata = {
-  title: "Projects - Araby Hossain Abid",
-  description: "Explore my portfolio of web development projects, showcasing modern applications built with Next.js, React, and cutting-edge technologies.",
-  keywords: ["Projects", "Portfolio", "Web Apps", "Development", "Showcase"],
-};
+import { motion } from "motion/react";
+import SomthingSection from '@/components/home-page-ui/somthing-section';
+import ProjectsHero from "@/components/projects-page-ui/projects-hero";
+import ProjectsStats from "@/components/projects-page-ui/projects-stats";
+import ProjectsGrid from "@/components/projects-page-ui/projects-grid";
+
+// Reusable animation wrapper
+const FadeUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function ProjectsPage() {
   return (
-    <section>
+    <section className="overflow-hidden bg-[#0d0d0d]">
+      <ProjectsHero />
 
-      <div data-aos="fade-up" data-aos-delay="150">
-        <ShowcaseCarousel />
-      </div>
+      <FadeUp delay={0}>
+        <ProjectsStats />
+      </FadeUp>
 
-      <div data-aos="fade-up" data-aos-delay="150">
-        <Work />
-      </div>
+      <FadeUp delay={0.1}>
+        <ProjectsGrid />
+      </FadeUp>
 
-      <div data-aos="fade-up" data-aos-delay="150">
+      <FadeUp delay={0.15}>
         <SomthingSection />
-      </div>
+      </FadeUp>
     </section>
-  )
+  );
 }

@@ -1,108 +1,123 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { Rocket, Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutBanner() {
   const router = useRouter();
 
-  const handleprojectClick = () => {
-    router.push("/projects");
-  };
-
-  const handleblogClick = () => {
-    router.push("/blog");
-  };
-
-  const gradientText =
-    "bg-gradient-to-r from-stone-500/100 via-gray-100 to-stone-500/100 bg-clip-text text-transparent";
-
   return (
-    <section className="max-w-6xl mx-auto flex border-b border-gray-600/30 flex-col items-center justify-center py-20">
-
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h2
-          className={`text-4xl md:text-5xl font-bold leading-tight text-center ${gradientText}`}
-          data-aos="fade-up"
-        >
-          Turning your ideas into modern, <br /> responsive web experiences.
-        </h2>
+    <section className="min-h-screen bg-[#0d0d0d] py-20 px-4 relative overflow-hidden flex items-center">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#deff00]/10 rounded-full blur-[120px] opacity-40" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] opacity-30" />
       </div>
 
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-[#deff00]" />
+            <span className="text-sm text-gray-300">About Me</span>
+          </motion.div>
 
-      <div data-aos="fade-up" data-aos-delay="200">
-        <p className="mt-4 max-w-xl text-center text-gray-400">
-          I turn your ideas into engaging, responsive web applications with
-          clean design, modern technology, and smooth user experiences.
-        </p>
-      </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+          >
+            Turning Ideas into
+            <br />
+            <span className="text-[#deff00]">Modern Web</span> Experiences
+          </motion.h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12"
+          >
+            I turn your ideas into engaging, responsive web applications with clean design,
+            modern technology, and smooth user experiences.
+          </motion.p>
 
-      <div
-        data-aos="fade-up"
-        data-aos-delay="300"
-        className="mt-8 flex gap-4 flex-wrap justify-center"
-      >
-        <button
-          onClick={handleprojectClick}
-          className="mt-8 px-8 py-3 font-semibold rounded-full bg-[#deff00] text-black
-                       transition-all duration-300 active:scale-95
-                       shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00]"
-        >
-          Start a Project
-        </button>
-
-        <InteractiveHoverButton
-          onClick={handleblogClick}
-          className="mt-8 px-8 py-3 border border-lime-400 font-medium rounded-full"
-        >
-          View Portfolio
-        </InteractiveHoverButton>
-      </div>
-
-
-      <div className="mt-16 flex flex-col md:flex-row items-center gap-8">
-
-        <div
-          data-aos="fade-down-right"
-          className="w-52 h-80 rounded-full overflow-hidden"
-        >
-          <Image
-            src="/image/divverse.svg"
-            alt="Frontend Development Left"
-            width={320}
-            height={240}
-            className="h-full w-full object-cover"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-4 justify-center mb-20"
+          >
+            <button
+              onClick={() => router.push("/projects")}
+              className="px-8 py-4 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_30px_0px_#deff00] transition-all duration-300 flex items-center gap-2"
+            >
+              <Rocket className="w-5 h-5" />
+              Start a Project
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => router.push("/blog")}
+              className="px-8 py-4 bg-white/5 text-white font-semibold rounded-full border border-white/10 hover:bg-white/10 hover:border-[#deff00]/50 transition-all duration-300"
+            >
+              View Portfolio
+            </button>
+          </motion.div>
         </div>
 
+        {/* Image Gallery */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50, rotate: -5 }}
+            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
+          >
+            <Image
+              src="/image/divverse.svg"
+              alt="Development"
+              width={320}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
 
-        <div
-          data-aos="fade-up"
-          className="w-80 h-80 rounded-2xl overflow-hidden"
-        >
-          <Image
-            src="/image/front-end.svg"
-            alt="Frontend Development Middle"
-            width={320}
-            height={240}
-            className="h-full w-full object-cover"
-          />
-        </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-80 h-80 rounded-3xl overflow-hidden border-2 border-[#deff00]/20 hover:border-[#deff00]/50 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_0px_#deff00]/20"
+          >
+            <Image
+              src="/image/front-end.svg"
+              alt="Frontend Development"
+              width={400}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
 
-
-        <div
-          data-aos="fade-down-left"
-          className="w-52 h-80 rounded-full overflow-hidden"
-        >
-          <Image
-            src="/image/modern.svg"
-            alt="Frontend Development Right"
-            width={320}
-            height={240}
-            className="h-full w-full object-cover"
-          />
+          <motion.div
+            initial={{ opacity: 0, x: 50, rotate: 5 }}
+            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
+          >
+            <Image
+              src="/image/modern.svg"
+              alt="Modern Design"
+              width={320}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
         </div>
       </div>
     </section>

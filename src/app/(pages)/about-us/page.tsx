@@ -1,46 +1,49 @@
-import AboutBanner from '@/components/about-page-ui/about-banner'
-import AboutTopNotch from '@/components/about-page-ui/about-top-notch'
-import AccordionsPages from '@/components/about-page-ui/accordions-page'
-import NumberSection from '@/components/about-page-ui/number-section'
-import Worked from '@/components/about-page-ui/worked'
-import SomthingSection from '@/components/home-page-ui/somthing-section'
-import { Metadata } from 'next'
-import React from 'react'
+"use client";
 
-export const metadata: Metadata = {
-  title: "About - Araby Hossain Abid",
-  description: "Learn more about my journey as a full-stack developer, my skills, experience, and passion for building modern web applications.",
-  keywords: ["About", "Developer", "Skills", "Experience", "Portfolio"],
-};
+import { motion } from "motion/react";
+import AboutBanner from '@/components/about-page-ui/about-banner';
+import AboutTopNotch from '@/components/about-page-ui/about-top-notch';
+import AccordionsPages from '@/components/about-page-ui/accordions-page';
+import NumberSection from '@/components/about-page-ui/number-section';
+import Worked from '@/components/about-page-ui/worked';
+import SomthingSection from '@/components/home-page-ui/somthing-section';
+
+// Reusable animation wrapper
+const FadeUp = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function AboutPage() {
   return (
-    <section>
+    <section className="overflow-hidden">
+      <AboutBanner />
 
-      <div>
-        <AboutBanner />
-      </div>
-
-      <div>
+      <FadeUp delay={0}>
         <NumberSection />
-      </div>
+      </FadeUp>
 
-      <div>
+      <FadeUp delay={0.1}>
         <AboutTopNotch />
-      </div>
+      </FadeUp>
 
-      <div>
+      <FadeUp delay={0.15}>
         <Worked />
-      </div>
+      </FadeUp>
 
-      <div>
+      <FadeUp delay={0.2}>
         <AccordionsPages />
-      </div>
+      </FadeUp>
 
-      <div>
+      <FadeUp delay={0.25}>
         <SomthingSection />
-      </div>
-
+      </FadeUp>
     </section>
-  )
+  );
 }

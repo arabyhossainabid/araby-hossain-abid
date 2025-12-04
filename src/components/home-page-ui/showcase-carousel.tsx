@@ -1,89 +1,185 @@
 "use client";
-
-import * as React from "react";
+import React from "react";
+import { motion } from "motion/react";
+import { ExternalLink, Github, Star, Eye, GitFork } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function SlideScale() {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
+const projects = [
+  {
+    id: 1,
+    title: "Mojito - GSAP Portfolio",
+    description: "Stunning portfolio with advanced GSAP animations and smooth scroll effects",
+    image: "/image/gsap.svg",
+    link: "https://mojito-ecru.vercel.app/",
+    github: "#",
+    tags: ["GSAP", "React", "Animation"],
+    stats: { stars: 24, views: "1.2k", forks: 8 }
+  },
+  {
+    id: 2,
+    title: "Career Hub Platform",
+    description: "Job search platform with advanced filtering and application tracking",
+    image: "/image/dream-job.svg",
+    link: "https://react-career-hub-three.vercel.app/",
+    github: "#",
+    tags: ["React", "UI/UX", "Platform"],
+    stats: { stars: 18, views: "980", forks: 5 }
+  },
+  {
+    id: 3,
+    title: "Medical Service Portal",
+    description: "Healthcare platform with appointment booking and patient management",
+    image: "/image/medical-service.svg",
+    link: "/",
+    github: "#",
+    tags: ["Next.js", "Healthcare", "Forms"],
+    stats: { stars: 32, views: "1.5k", forks: 12 }
+  },
+  {
+    id: 4,
+    title: "Personal Portfolio V2",
+    description: "Modern portfolio with smooth animations and dark mode",
+    image: "/image/cover.svg",
+    link: "https://my-portfolio-sage-two.vercel.app/",
+    github: "#",
+    tags: ["Portfolio", "Next.js", "Design"],
+    stats: { stars: 15, views: "750", forks: 4 }
+  },
+  {
+    id: 5,
+    title: "Spylt Landing Page",
+    description: "Creative landing page with interactive GSAP animations",
+    image: "/image/gsap-spylt.svg",
+    link: "https://spylt-bay.vercel.app/",
+    github: "#",
+    tags: ["GSAP", "Landing", "Creative"],
+    stats: { stars: 28, views: "1.1k", forks: 9 }
+  },
+];
 
-  const slides = [
-    { id: 1, image: "/image/gsap.svg", link: "https://mojito-ecru.vercel.app/" },
-    { id: 2, image: "/image/cover.svg", link: "https://my-portfolio-sage-two.vercel.app/" },
-    { id: 3, image: "/image/medical-service.svg", link: "/" },
-    { id: 4, image: "/image/dream-job.svg", link: "https://react-career-hub-three.vercel.app/" },
-    { id: 5, image: "/image/gsap-spylt.svg", link: "https://spylt-bay.vercel.app/" },
-  ];
-
-  React.useEffect(() => {
-    if (!api) return;
-
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [api]);
-
+export default function ShowcaseCarousel() {
   return (
-    <section className="mx-auto max-w-7xl my-20 lg:my-40">
-      <div>
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-center bg-gradient-to-r from-stone-800/100 via-gray-100 to-stone-800/100 bg-clip-text text-transparent">
-          <span className="font-bold">Projects</span>
-        </h2>
-
+    <section className="min-h-screen bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-[#deff00]/5 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute bottom-1/3 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] opacity-20" />
       </div>
 
-      <div className="mt-10">
-        <Carousel
-          setApi={setApi}
-          className="w-full max-w-screen"
-          opts={{ loop: true }}
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <CarouselContent className="py-3">
-            {slides.map((slide, index) => (
-              <CarouselItem key={slide.id} className={cn("basis-[33%]")}>
-                <Card
-                  className={cn("transition-transform duration-500 p-0", {
-                    "scale-[0.6]": index !== current - 1,
-                  })}
-                >
-                  <CardContent className="flex aspect-square items-center justify-center p-0">
-                    <a
-                      href={slide.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full h-full block"
-                    >
-                      <Image
-                        src={slide.image}
-                        alt={`Slide ${index + 1}`}
-                        width={500}
-                        height={500}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Featured <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">Projects</span>
+          </h2>
+          <p className="text-gray-400 text-xl max-w-3xl mx-auto">
+            A showcase of my recent work, combining creativity with cutting-edge technology
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 h-full hover:border-[#deff00]/40 transition-all duration-500 hover:-translate-y-3 group overflow-hidden backdrop-blur-sm">
+                {/* Image with Overlay */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                  {/* Hover Buttons */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="bg-[#deff00] text-black hover:bg-[#deff00]/90 font-bold shadow-lg">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live
+                      </Button>
                     </a>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          {/* CarouselPrevious and CarouselNext removed */}
-        </Carousel>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md border border-white/30">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
+                  </div>
+
+                  {/* Stats Badge */}
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <div className="px-2 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1">
+                      <Star className="w-3 h-3 text-[#deff00] fill-[#deff00]" />
+                      <span className="text-xs text-white font-medium">{project.stats.stars}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#deff00] transition-colors line-clamp-1">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-[#deff00]/10 text-[#deff00] text-xs font-medium border border-[#deff00]/20 hover:bg-[#deff00]/20 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Project Stats */}
+                  <div className="flex items-center gap-4 pt-4 border-t border-white/10 text-xs text-gray-400">
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{project.stats.views}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <GitFork className="w-3.5 h-3.5" />
+                      <span>{project.stats.forks}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <Button className="px-10 py-6 bg-white/5 text-white hover:bg-white/10 border-2 border-white/10 hover:border-[#deff00]/50 rounded-full text-lg font-semibold backdrop-blur-sm">
+            View All Projects →
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

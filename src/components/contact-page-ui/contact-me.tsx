@@ -43,10 +43,8 @@ const ContactMe = () => {
                 setSubmitStatus("success");
                 setIsSubmitting(false);
 
-                // ✅ Form fields reset
-                if (form) {
-                    form.reset();
-                }
+                // Form clear
+                if (form) form.reset();
 
                 setTimeout(() => setSubmitStatus("idle"), 5000);
             })
@@ -188,7 +186,9 @@ const ContactMe = () => {
                                         className="flex items-center gap-2 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400"
                                     >
                                         <CheckCircle className="w-5 h-5" />
-                                        <span className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</span>
+                                        <span className="text-sm font-medium">
+                                            Message sent successfully! I&apos;ll get back to you soon.
+                                        </span>
                                     </motion.div>
                                 )}
 
@@ -212,7 +212,7 @@ const ContactMe = () => {
                                 >
                                     {isSubmitting ? (
                                         <>
-                                            <Loader2 className="w-4 h-4  mr-2 animate-spin" />
+                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                                             Sending...
                                         </>
                                     ) : (

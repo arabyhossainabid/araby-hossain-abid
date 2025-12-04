@@ -1,5 +1,5 @@
 
-export const reportWebVitals = (_metric: unknown) => {
+export const reportWebVitals = () => {
     if (process.env.NODE_ENV === 'production') {
     }
 };
@@ -40,5 +40,5 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
     };
 }
 
-export function sendToAnalytics(_metric: unknown) {
+export function sendToAnalytics() {
 }

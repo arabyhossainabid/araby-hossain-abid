@@ -11,7 +11,7 @@ const services = [
     icon: Zap,
     title: "Lightning Fast Development",
     description: "I build high-performance web applications with optimized code, ensuring blazing-fast load times and smooth interactions.",
-    features: ["< 1s Load Time", "SEO Optimized", "Performance First"]
+    features: ["&lt; 1s Load Time", "SEO Optimized", "Performance First"]
   },
   {
     icon: Shield,
@@ -131,7 +131,7 @@ function Topnotch() {
                   Ready to Build Something <span className="text-[#deff00]">Amazing</span>?
                 </h3>
                 <p className="text-gray-300 text-xl mb-10 leading-relaxed">
-                  Let's collaborate to create modern, responsive, and engaging web applications
+                  Let&apos;s collaborate to create modern, responsive, and engaging web applications
                   that bring your vision to life and exceed expectations.
                 </p>
 

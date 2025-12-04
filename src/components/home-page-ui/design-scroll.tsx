@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { Code, Palette, Lightbulb, Rocket, Sparkles, TrendingUp, CheckCircle2, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
@@ -37,6 +38,8 @@ const journey = [
 ];
 
 function DesignScroll() {
+  const router = useRouter();
+
   return (
     <section className="min-h-screen bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
       {/* Advanced Background */}
@@ -210,11 +213,17 @@ function DesignScroll() {
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button className="group px-10 py-6 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_40px_0px_#deff00] transition-all duration-300 text-lg">
+                <Button
+                  onClick={() => router.push('/contact')}
+                  className="group px-10 py-6 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_40px_0px_#deff00] transition-all duration-300 text-lg"
+                >
                   Get in Touch
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button className="px-10 py-6 bg-white/10 text-white font-semibold rounded-full border-2 border-white/20 hover:bg-white/20 hover:border-[#deff00]/50 transition-all duration-300 text-lg backdrop-blur-sm">
+                <Button
+                  onClick={() => router.push('/projects')}
+                  className="px-10 py-6 bg-white/10 text-white font-semibold rounded-full border-2 border-white/20 hover:bg-white/20 hover:border-[#deff00]/50 transition-all duration-300 text-lg backdrop-blur-sm"
+                >
                   View Projects
                 </Button>
               </div>

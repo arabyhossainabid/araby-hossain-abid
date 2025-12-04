@@ -13,6 +13,7 @@ const projects = [
     subtitle: "Dynamic About Page / Motion Effects",
     img: "/image/gsap.svg",
     link: "https://mojito-ecru.vercel.app/",
+    github: "#",
     tags: ["GSAP", "React", "Animation"]
   },
   {
@@ -21,6 +22,7 @@ const projects = [
     subtitle: "Job Search Platform / Responsive UI",
     img: "/image/dream-job.svg",
     link: "https://react-career-hub-three.vercel.app/",
+    github: "#",
     tags: ["React", "UI/UX", "Platform"]
   },
   {
@@ -29,6 +31,7 @@ const projects = [
     subtitle: "NextUI / Tailwind / Validation",
     img: "/image/medical-service.svg",
     link: "/",
+    github: "#",
     tags: ["Next.js", "Healthcare", "Forms"]
   },
   {
@@ -37,6 +40,7 @@ const projects = [
     subtitle: "Next.js / Tailwind / Animation",
     img: "/image/cover.svg",
     link: "https://my-portfolio-sage-two.vercel.app/",
+    github: "#",
     tags: ["Portfolio", "Next.js", "Design"]
   },
 ];
@@ -95,10 +99,12 @@ function Work() {
                         Live Demo
                       </Button>
                     </a>
-                    <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
                   </div>
                 </div>
 

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { ExternalLink, Github, Star, Eye, GitFork } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -60,6 +61,8 @@ const projects = [
 ];
 
 export default function ShowcaseCarousel() {
+  const router = useRouter();
+
   return (
     <section className="min-h-screen bg-[#0d0d0d] py-20 px-4 relative overflow-hidden">
       {/* Background */}
@@ -176,7 +179,10 @@ export default function ShowcaseCarousel() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-16"
         >
-          <Button className="px-10 py-6 bg-white/5 text-white hover:bg-white/10 border-2 border-white/10 hover:border-[#deff00]/50 rounded-full text-lg font-semibold backdrop-blur-sm">
+          <Button
+            onClick={() => router.push('/projects')}
+            className="px-10 py-6 bg-white/5 text-white hover:bg-white/10 border-2 border-white/10 hover:border-[#deff00]/50 rounded-full text-lg font-semibold backdrop-blur-sm"
+          >
             View All Projects →
           </Button>
         </motion.div>

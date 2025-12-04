@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Facebook, Loader2, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,10 +10,13 @@ import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
     const contactInfo = [
         { icon: Mail, title: "Email", details: "arabyhossainabid@gmail.com", link: "mailto:arabyhossainabid@gmail.com" },
         { icon: Phone, title: "Phone", details: "+880 192 380 7556", link: "tel:+8801923807556" },
-        { icon: MapPin, title: "Location", details: "Dhaka, Bangladesh", link: "https://www.google.com/maps/place/Dhaka,+Bangladesh" },
+        { icon: MapPin, title: "Location", details: "Dhaka, Bangladesh", link: "https://www.google.com/maps/place/Dhaka,basabo+Bangladesh" },
     ];
 
     const socialLinks = [
@@ -24,19 +27,39 @@ const ContactMe = () => {
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        e.currentTarget,
-        "YOUR_PUBLIC_KEY" // <- replace this with the correct one from dashboard
-        )
+        setIsSubmitting(true);
+        setSubmitStatus("idle");
 
-        .then(() => {
-            alert("Message sent successfully!");
-            e.currentTarget.reset();
-        }, (error) => {
-            alert("Oops! Something went wrong: " + error.text);
-        });
+        const form = e.currentTarget;
+
+        emailjs.sendForm(
+            "service_whfm8k9",    // Service ID
+            "template_j3h9isf",   // Template ID
+            form,
+            "ZzCef19tcZkULWCsB"   // Public Key
+        )
+            .then((response) => {
+                console.log("✅ Email sent successfully!", response.status, response.text);
+                setSubmitStatus("success");
+                setIsSubmitting(false);
+
+                // ✅ Form fields reset
+                if (form) {
+                    form.reset();
+                }
+
+                setTimeout(() => setSubmitStatus("idle"), 5000);
+            })
+            .catch((error) => {
+                console.error("❌ EmailJS error:", error);
+                if (error?.text) console.error("Error text:", error.text);
+                if (error?.status) console.error("Error status:", error.status);
+
+                setSubmitStatus("error");
+                setIsSubmitting(false);
+
+                setTimeout(() => setSubmitStatus("idle"), 5000);
+            });
     };
 
     return (
@@ -65,8 +88,13 @@ const ContactMe = () => {
                     <div className="space-y-4">
                         {contactInfo.map((item, i) => (
                             <motion.a
-                                key={i} href={item.link} target={item.title === "Location" ? "_blank" : undefined} rel="noreferrer"
-                                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 + i * 0.1 }}
+                                key={i}
+                                href={item.link}
+                                target={item.title === "Location" ? "_blank" : undefined}
+                                rel="noreferrer"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 + i * 0.1 }}
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#deff00]/50 transition-all group"
                             >
                                 <div className="p-3 rounded-full bg-[#deff00]/10 text-[#deff00] group-hover:bg-[#deff00] group-hover:text-black transition-colors">
@@ -83,8 +111,12 @@ const ContactMe = () => {
                     <div className="flex gap-4 pt-4">
                         {socialLinks.map((social, i) => (
                             <motion.a
-                                key={i} href={social.link} target="_blank" rel="noreferrer"
-                                whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.95 }}
+                                key={i}
+                                href={social.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                whileTap={{ scale: 0.95 }}
                                 className="p-3 rounded-full bg-white/5 border border-white/10 hover:border-[#deff00] hover:text-[#deff00] text-gray-300 transition-colors"
                             >
                                 <social.icon className="w-5 h-5" />
@@ -107,23 +139,87 @@ const ContactMe = () => {
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-400">Name</label>
-                                        <Input required name="name" placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white" />
+                                        <Input
+                                            required
+                                            name="name"
+                                            placeholder="John Doe"
+                                            className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
+                                            disabled={isSubmitting}
+                                        />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-400">Email</label>
-                                        <Input required name="email" type="email" placeholder="john@example.com" className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white" />
+                                        <Input
+                                            required
+                                            name="email"
+                                            type="email"
+                                            placeholder="john@example.com"
+                                            className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
+                                            disabled={isSubmitting}
+                                        />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-400">Subject</label>
-                                    <Input required name="subject" placeholder="Project Inquiry" className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white" />
+                                    <Input
+                                        required
+                                        name="subject"
+                                        placeholder="Project Inquiry"
+                                        className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
+                                        disabled={isSubmitting}
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-400">Message</label>
-                                    <Textarea required name="message" placeholder="Tell me about your project..." rows={5} className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white resize-none" />
+                                    <Textarea
+                                        required
+                                        name="message"
+                                        placeholder="Tell me about your project..."
+                                        rows={5}
+                                        className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white resize-none"
+                                        disabled={isSubmitting}
+                                    />
                                 </div>
-                                <Button type="submit" className="w-full bg-[#deff00] text-black hover:bg-[#deff00]/90 font-bold rounded-full shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00] transition-all">
-                                    Send Message <Send className="w-4 h-4 ml-2" />
+
+                                {submitStatus === "success" && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="flex items-center gap-2 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400"
+                                    >
+                                        <CheckCircle className="w-5 h-5" />
+                                        <span className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</span>
+                                    </motion.div>
+                                )}
+
+                                {submitStatus === "error" && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400"
+                                    >
+                                        <p className="text-sm font-medium">Oops! Something went wrong.</p>
+                                        <p className="text-xs mt-1 text-red-300">
+                                            Please check the EmailJS template configuration (remove Bcc or invalid headers) and try again.
+                                        </p>
+                                    </motion.div>
+                                )}
+
+                                <Button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-[#deff00] h-14 text-lg text-black hover:bg-[#deff00]/90 font-bold rounded-full shadow-[0_0_0px_0_#deff00] hover:shadow-[0_0_15px_0px_#deff00] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4  mr-2 animate-spin" />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            Send Message <Send className="w-4 h-4 ml-2" />
+                                        </>
+                                    )}
                                 </Button>
                             </form>
                         </CardContent>

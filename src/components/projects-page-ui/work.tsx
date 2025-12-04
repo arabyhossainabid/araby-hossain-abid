@@ -47,7 +47,7 @@ function Worked() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            I&apos;ve Worked with
+            {"I’ve Worked with"}
             <br />
             <span className="text-[#deff00]">Amazing</span> Tech Companies
           </h2>

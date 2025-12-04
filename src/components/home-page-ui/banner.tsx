@@ -93,6 +93,17 @@ function Banner() {
             </InteractiveHoverButton>
           </div>
         </div>
+
+        <div className="relative w-[300px] h-[450px] lg:w-[440px] lg:h-[590px] flex-shrink-0 hidden md:block">
+          <Image
+            src={person}
+            alt="Person"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+
       </div>
     </section>
   );

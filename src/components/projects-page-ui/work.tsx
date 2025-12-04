@@ -1,101 +1,101 @@
-"use client";
+// "use client";
 
-import React from "react";
-import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
-import { Briefcase, Calendar, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+// import React from "react";
+// import { motion } from "motion/react";
+// import { useRouter } from "next/navigation";
+// import { Briefcase, Calendar, ArrowRight } from "lucide-react";
+// import { Card, CardContent } from "@/components/ui/card";
 
-const experiences = [
-  {
-    id: 1,
-    date: "Jan 2021 – Dec 2022",
-    company: "TechNova",
-    role: "Frontend Developer",
-    description:
-      "Worked on building responsive, user-friendly web applications using React, Next.js, and Tailwind CSS.",
-  },
-  {
-    id: 2,
-    date: "Jan 2020 – Dec 2020",
-    company: "PixelCraft",
-    role: "Junior Frontend Developer",
-    description:
-      "Developed interactive UI components and assisted in optimizing website performance and responsiveness.",
-  },
-  {
-    id: 3,
-    date: "Jun 2019 – Dec 2019",
-    company: "WebWorks",
-    role: "Frontend Intern",
-    description:
-      "Collaborated with senior developers to implement modern UI features and improve user experience.",
-  },
-];
+// const experiences = [
+//   {
+//     id: 1,
+//     date: "Jan 2021 – Dec 2022",
+//     company: "TechNova",
+//     role: "Frontend Developer",
+//     description:
+//       "Worked on building responsive, user-friendly web applications using React, Next.js, and Tailwind CSS.",
+//   },
+//   {
+//     id: 2,
+//     date: "Jan 2020 – Dec 2020",
+//     company: "PixelCraft",
+//     role: "Junior Frontend Developer",
+//     description:
+//       "Developed interactive UI components and assisted in optimizing website performance and responsiveness.",
+//   },
+//   {
+//     id: 3,
+//     date: "Jun 2019 – Dec 2019",
+//     company: "WebWorks",
+//     role: "Frontend Intern",
+//     description:
+//       "Collaborated with senior developers to implement modern UI features and improve user experience.",
+//   },
+// ];
 
-function Worked() {
-  const router = useRouter();
+// function Worked() {
+//   const router = useRouter();
 
-  return (
-    <section className="bg-[#0d0d0d] py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            I&apos;ve Worked with
-            <br />
-            <span className="text-[#deff00]">Amazing</span> Tech Companies
-          </h2>
-        </motion.div>
+//   return (
+//     <section className="bg-[#0d0d0d] py-20 px-4">
+//       <div className="max-w-4xl mx-auto">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6 }}
+//           className="text-center mb-16"
+//         >
+//           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+//             I&apos;ve Worked with
+//             <br />
+//             <span className="text-[#deff00]">Amazing</span> Tech Companies
+//           </h2>
+//         </motion.div>
 
-        <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="bg-white/5 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 group">
-                <CardContent className="p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
-                        <Calendar className="w-4 h-4" />
-                        {exp.date}
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-[#deff00] transition-colors">
-                        {exp.company}
-                      </h3>
-                      <div className="flex items-center gap-2 text-[#deff00] font-semibold mb-3">
-                        <Briefcase className="w-4 h-4" />
-                        {exp.role}
-                      </div>
-                      <p className="text-gray-400 leading-relaxed">
-                        {exp.description}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => router.push("/contact")}
-                      className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-[#deff00] hover:border-[#deff00] flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                    >
-                      <ArrowRight className="w-5 h-5 text-white group-hover:text-black transition-colors" />
-                    </button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div className="space-y-6">
+//           {experiences.map((exp, index) => (
+//             <motion.div
+//               key={exp.id}
+//               initial={{ opacity: 0, y: 20 }}
+//               whileInView={{ opacity: 1, y: 0 }}
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.5, delay: index * 0.1 }}
+//             >
+//               <Card className="bg-white/5 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 group">
+//                 <CardContent className="p-6 md:p-8">
+//                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+//                     <div className="flex-1">
+//                       <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
+//                         <Calendar className="w-4 h-4" />
+//                         {exp.date}
+//                       </div>
+//                       <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-[#deff00] transition-colors">
+//                         {exp.company}
+//                       </h3>
+//                       <div className="flex items-center gap-2 text-[#deff00] font-semibold mb-3">
+//                         <Briefcase className="w-4 h-4" />
+//                         {exp.role}
+//                       </div>
+//                       <p className="text-gray-400 leading-relaxed">
+//                         {exp.description}
+//                       </p>
+//                     </div>
+//                     <button
+//                       onClick={() => router.push("/contact")}
+//                       className="w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-[#deff00] hover:border-[#deff00] flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+//                     >
+//                       <ArrowRight className="w-5 h-5 text-white group-hover:text-black transition-colors" />
+//                     </button>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
-export default Worked;
+// export default Worked;

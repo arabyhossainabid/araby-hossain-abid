@@ -75,7 +75,7 @@ function Worked() {
                         {exp.role}
                       </div>
                       <p className="text-gray-400 leading-relaxed">
-                        {exp.description}
+                        {exp.description.replace(/'/g, "&apos;")}
                       </p>
                     </div>
                     <button

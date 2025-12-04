@@ -140,7 +140,7 @@ const ContactMe = () => {
                                         <Input
                                             required
                                             name="name"
-                                            placeholder="John Doe"
+                                            placeholder="Your Name"
                                             className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
                                             disabled={isSubmitting}
                                         />
@@ -151,7 +151,7 @@ const ContactMe = () => {
                                             required
                                             name="email"
                                             type="email"
-                                            placeholder="john@example.com"
+                                            placeholder="Your Email"
                                             className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
                                             disabled={isSubmitting}
                                         />
@@ -162,7 +162,7 @@ const ContactMe = () => {
                                     <Input
                                         required
                                         name="subject"
-                                        placeholder="Project Inquiry"
+                                        placeholder="Subject"
                                         className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white"
                                         disabled={isSubmitting}
                                     />
@@ -172,7 +172,7 @@ const ContactMe = () => {
                                     <Textarea
                                         required
                                         name="message"
-                                        placeholder="Tell me about your project..."
+                                        placeholder="Your Message"
                                         rows={5}
                                         className="bg-black/50 border-white/10 focus-visible:ring-[#deff00] text-white resize-none"
                                         disabled={isSubmitting}

@@ -16,7 +16,7 @@ const ContactMe = () => {
     const contactInfo = [
         { icon: Mail, title: "Email", details: "arabyhossainabid@gmail.com", link: "mailto:arabyhossainabid@gmail.com" },
         { icon: Phone, title: "Phone", details: "+880 192 380 7556", link: "tel:+8801923807556" },
-        { icon: MapPin, title: "Location", details: "Dhaka, Bangladesh", link: "https://www.google.com/maps/place/Dhaka,basabo+Bangladesh" },
+        { icon: MapPin, title: "Location", details: "Dhaka,basabo Bangladesh", link: "https://www.google.com/maps/place/Dhaka,basabo+Bangladesh" },
     ];
 
     const socialLinks = [

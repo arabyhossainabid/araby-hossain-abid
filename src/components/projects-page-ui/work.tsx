@@ -12,21 +12,24 @@ const experiences = [
     date: "Jan 2021 – Dec 2022",
     company: "TechNova",
     role: "Frontend Developer",
-    description: "Worked on building responsive, user-friendly web applications using React, Next.js, and Tailwind CSS.",
+    description:
+      "Worked on building responsive, user-friendly web applications using React, Next.js, and Tailwind CSS.",
   },
   {
     id: 2,
     date: "Jan 2020 – Dec 2020",
     company: "PixelCraft",
     role: "Junior Frontend Developer",
-    description: "Developed interactive UI components and assisted in optimizing website performance and responsiveness.",
+    description:
+      "Developed interactive UI components and assisted in optimizing website performance and responsiveness.",
   },
   {
     id: 3,
     date: "Jun 2019 – Dec 2019",
     company: "WebWorks",
     role: "Frontend Intern",
-    description: "Collaborated with senior developers to implement modern UI features and improve user experience.",
+    description:
+      "Collaborated with senior developers to implement modern UI features and improve user experience.",
   },
 ];
 

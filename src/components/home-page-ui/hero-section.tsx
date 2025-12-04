@@ -1,4 +1,5 @@
 "use client";
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
@@ -48,7 +49,7 @@ function HeroSection() {
           >
             <Sparkles className="w-4 h-4 text-[#deff00] animate-pulse" />
             <span className="text-sm font-semibold bg-gradient-to-r from-[#deff00] to-white bg-clip-text text-transparent">
-              Full-Stack Developer & UI/UX Enthusiast
+              Full-Stack Developer &amp; UI/UX Enthusiast
             </span>
           </motion.div>
 
@@ -73,7 +74,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-12 leading-relaxed"
           >
-            I'm <span className="text-white font-bold">Araby Hossain Abid</span>, a passionate full-stack developer
+            I&apos;m <span className="text-white font-bold">Araby Hossain Abid</span>, a passionate full-stack developer
             specializing in building exceptional digital experiences with
             <span className="text-[#deff00] font-semibold"> React, Next.js, TypeScript</span>, and modern technologies.
           </motion.p>

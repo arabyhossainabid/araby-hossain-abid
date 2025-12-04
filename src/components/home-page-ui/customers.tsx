@@ -11,40 +11,44 @@ const testimonials = [
     role: "Full Stack Web Developer",
     company: "Self-Employed",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    review: "I create responsive and high-performance websites and web applications using React, Next.js, and Tailwind CSS. My focus is on clean code, smooth animations, and enhancing the overall user experience with modern technologies.",
+    review:
+      "I create responsive and high-performance websites and web applications using React, Next.js, and Tailwind CSS. My focus is on clean code, smooth animations, and enhancing the overall user experience with modern technologies.",
     rating: 5,
     verified: true,
-    likes: 42
+    likes: 42,
   },
   {
     name: "Sarah Johnson",
     role: "Startup Founder",
     company: "TechVenture Inc",
     image: "https://randomuser.me/api/portraits/women/65.jpg",
-    review: "Abid delivered our web application with precision and creativity. The user interface is intuitive, visually appealing, and the site performs flawlessly on all devices. Highly recommended!",
+    review:
+      "Abid delivered our web application with precision and creativity. The user interface is intuitive, visually appealing, and the site performs flawlessly on all devices. Highly recommended!",
     rating: 5,
     verified: true,
-    likes: 38
+    likes: 38,
   },
   {
     name: "Michael Chen",
     role: "Product Manager",
     company: "InnovateLabs",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
-    review: "Working with Abid was seamless. He brought our vision to life with modern frontend technologies, responsive layouts, and interactive elements that truly enhance user engagement.",
+    review:
+      "Working with Abid was seamless. He brought our vision to life with modern frontend technologies, responsive layouts, and interactive elements that truly enhance user engagement.",
     rating: 5,
     verified: true,
-    likes: 35
+    likes: 35,
   },
   {
     name: "Emma Williams",
     role: "Creative Director",
     company: "DesignHub",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    review: "Abid's frontend expertise is impressive. He perfectly integrates animations, responsive design, and usability into every project. Collaborating with him is always a great experience.",
+    review:
+      "Abid&apos;s frontend expertise is impressive. He perfectly integrates animations, responsive design, and usability into every project. Collaborating with him is always a great experience.",
     rating: 5,
     verified: true,
-    likes: 40
+    likes: 40,
   },
 ];
 
@@ -55,7 +59,10 @@ export default function Customers() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#deff0008,transparent_50%),radial-gradient(circle_at_80%_70%,#8b5cf608,transparent_50%)]" />
         <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#deff00]/5 rounded-full blur-[120px] opacity-30 animate-pulse" />
-        <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div
+          className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] opacity-20 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -68,16 +75,26 @@ export default function Customers() {
         >
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#deff00]/20 to-purple-500/20 border border-[#deff00]/30 mb-8 backdrop-blur-sm">
             <ThumbsUp className="w-4 h-4 text-[#deff00]" />
-            <span className="text-sm font-semibold text-white">Client Testimonials</span>
+            <span className="text-sm font-semibold text-white">
+              Client Testimonials
+            </span>
           </div>
 
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            What <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">Clients</span> Say
+            What{" "}
+            <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">
+              Clients
+            </span>{" "}
+            Say
             <br />
-            About My <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">Work</span>
+            About My{" "}
+            <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">
+              Work
+            </span>
           </h2>
           <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            Trusted by clients worldwide to deliver exceptional web experiences that exceed expectations
+            Trusted by clients worldwide to deliver exceptional web experiences
+            that exceed expectations
           </p>
         </motion.div>
 
@@ -106,15 +123,21 @@ export default function Customers() {
                       <Star
                         key={idx}
                         size={20}
-                        className={idx < testimonial.rating ? "text-[#deff00] fill-[#deff00]" : "text-gray-600"}
+                        className={
+                          idx < testimonial.rating
+                            ? "text-[#deff00] fill-[#deff00]"
+                            : "text-gray-600"
+                        }
                       />
                     ))}
-                    <span className="ml-2 text-sm text-gray-400">({testimonial.rating}.0)</span>
+                    <span className="ml-2 text-sm text-gray-400">
+                      ({testimonial.rating}.0)
+                    </span>
                   </div>
 
                   {/* Review */}
                   <p className="text-gray-300 leading-relaxed mb-6 flex-grow text-base">
-                    "{testimonial.review}"
+                    &quot;{testimonial.review}&quot;
                   </p>
 
                   {/* Client Info */}
@@ -147,7 +170,9 @@ export default function Customers() {
                     {/* Likes */}
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
                       <ThumbsUp className="w-3.5 h-3.5 text-[#deff00]" />
-                      <span className="text-sm font-medium text-white">{testimonial.likes}</span>
+                      <span className="text-sm font-medium text-white">
+                        {testimonial.likes}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -171,7 +196,7 @@ export default function Customers() {
                   { value: "4.9/5", label: "Average Rating" },
                   { value: "30+", label: "Happy Clients" },
                   { value: "155", label: "Total Reviews" },
-                  { value: "100%", label: "Satisfaction" }
+                  { value: "100%", label: "Satisfaction" },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}

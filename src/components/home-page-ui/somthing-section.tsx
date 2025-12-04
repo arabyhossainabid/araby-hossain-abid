@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
@@ -46,7 +47,7 @@ function SomthingSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8"
         >
-          Hi, I'm{" "}
+          Hi, I&apos;m{" "}
           <span className="text-[#deff00] inline-block">
             Araby Hossain Abid
           </span>
@@ -93,7 +94,7 @@ function SomthingSection() {
             className="group px-8 py-4 bg-white/5 text-white font-semibold rounded-full border border-white/10 hover:bg-white/10 hover:border-[#deff00]/50 transition-all duration-300 flex items-center gap-2"
           >
             <Code2 className="w-5 h-5" />
-            Let's Talk
+            Let&apos;s Talk
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </motion.div>

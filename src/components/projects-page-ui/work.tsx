@@ -14,7 +14,7 @@ const projects = [
     img: "/image/gsap.svg",
     link: "https://mojito-ecru.vercel.app/",
     github: "#",
-    tags: ["GSAP", "React", "Animation"]
+    tags: ["GSAP", "React", "Animation"],
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const projects = [
     img: "/image/dream-job.svg",
     link: "https://react-career-hub-three.vercel.app/",
     github: "#",
-    tags: ["React", "UI/UX", "Platform"]
+    tags: ["React", "UI/UX", "Platform"],
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const projects = [
     img: "/image/medical-service.svg",
     link: "/",
     github: "#",
-    tags: ["Next.js", "Healthcare", "Forms"]
+    tags: ["Next.js", "Healthcare", "Forms"],
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const projects = [
     img: "/image/cover.svg",
     link: "https://my-portfolio-sage-two.vercel.app/",
     github: "#",
-    tags: ["Portfolio", "Next.js", "Design"]
+    tags: ["Portfolio", "Next.js", "Design"],
   },
 ];
 

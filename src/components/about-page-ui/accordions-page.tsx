@@ -3,14 +3,13 @@
 import React from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { HelpCircle, ChevronDown } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Card, CardContent } from "@/components/ui/card";
 
 const faqs = [
   {
@@ -70,7 +69,7 @@ export default function AccordionsPages() {
             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
               Here are some of the most common questions people ask me as a{" "}
               <span className="text-white font-semibold">Frontend Developer</span>.
-              I've added the answers to help you understand my skills, process, and services.
+              I&apos;ve added the answers to help you understand my skills, process, and services.
             </p>
 
             <button

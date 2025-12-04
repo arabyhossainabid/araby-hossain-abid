@@ -1,8 +1,18 @@
 "use client";
+
 import React from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { Code, Palette, Lightbulb, Rocket, Sparkles, TrendingUp, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Code,
+  Palette,
+  Lightbulb,
+  Rocket,
+  Sparkles,
+  TrendingUp,
+  CheckCircle2,
+  ArrowRight,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -11,30 +21,33 @@ const journey = [
   {
     icon: Code,
     title: "Frontend Development",
-    description: "I create fast, responsive, and modern web applications using React, Next.js, Tailwind CSS, and TypeScript. My goal is to deliver seamless user experiences while maintaining high performance and clean code architecture.",
+    description:
+      "I create fast, responsive, and modern web applications using React, Next.js, Tailwind CSS, and TypeScript. My goal is to deliver seamless user experiences while maintaining high performance and clean code architecture.",
     image: "/image/coding.svg",
     color: "#deff00",
     gradient: "from-[#deff00]/20 to-[#deff00]/5",
-    skills: ["React & Next.js", "TypeScript", "Responsive Design", "Performance Optimization"]
+    skills: ["React & Next.js", "TypeScript", "Responsive Design", "Performance Optimization"],
   },
   {
     icon: Palette,
     title: "Creative UI & Animations",
-    description: "I design interactive and visually appealing interfaces with smooth animations and micro-interactions, using GSAP and Framer Motion to create dynamic experiences that captivate users and enhance engagement.",
+    description:
+      "I design interactive and visually appealing interfaces with smooth animations and micro-interactions, using GSAP and Framer Motion to create dynamic experiences that captivate users and enhance engagement.",
     image: "/image/animation.svg",
     color: "#8b5cf6",
     gradient: "from-purple-500/20 to-purple-500/5",
-    skills: ["GSAP Animations", "Framer Motion", "UI/UX Design", "Micro-interactions"]
+    skills: ["GSAP Animations", "Framer Motion", "UI/UX Design", "Micro-interactions"],
   },
   {
     icon: Lightbulb,
     title: "Problem Solving & Innovation",
-    description: "I tackle complex frontend challenges with innovative solutions, ensuring every project not only works flawlessly but also pushes the boundaries of modern web design with creative thinking and technical excellence.",
+    description:
+      "I tackle complex frontend challenges with innovative solutions, ensuring every project not only works flawlessly but also pushes the boundaries of modern web design with creative thinking and technical excellence.",
     image: "/image/problem-solving.svg",
     color: "#06b6d4",
     gradient: "from-cyan-500/20 to-cyan-500/5",
-    skills: ["Algorithm Design", "Code Optimization", "Creative Solutions", "Best Practices"]
-  }
+    skills: ["Algorithm Design", "Code Optimization", "Creative Solutions", "Best Practices"],
+  },
 ];
 
 function DesignScroll() {
@@ -46,7 +59,10 @@ function DesignScroll() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#deff0005,transparent_70%)]" />
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#deff00]/5 rounded-full blur-[120px] opacity-30 animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] opacity-20 animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div
+          className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] opacity-20 animate-pulse"
+          style={{ animationDelay: "1.5s" }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -63,12 +79,20 @@ function DesignScroll() {
           </div>
 
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            My <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">Journey</span> as a
+            My{" "}
+            <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">
+              Journey
+            </span>{" "}
+            as a
             <br />
-            Frontend <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">Developer</span>
+            Frontend{" "}
+            <span className="bg-gradient-to-r from-[#deff00] to-yellow-300 bg-clip-text text-transparent">
+              Developer
+            </span>
           </h2>
           <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
-            Combining technical expertise with creative vision to build exceptional web experiences that stand out
+            Combining technical expertise with creative vision to build exceptional web experiences that
+            stand out
           </p>
         </motion.div>
 
@@ -83,18 +107,23 @@ function DesignScroll() {
             >
               <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 overflow-hidden hover:border-[#deff00]/40 transition-all duration-500 group backdrop-blur-sm relative">
                 {/* Animated Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500`}
+                />
 
-                <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+                <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}>
                   {/* Content Side */}
-                  <div className={`p-8 md:p-12 lg:p-16 flex flex-col justify-center relative z-10 ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+                  <div
+                    className={`p-8 md:p-12 lg:p-16 flex flex-col justify-center relative z-10 ${index % 2 === 1 ? "md:col-start-2" : ""
+                      }`}
+                  >
                     {/* Icon */}
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       className="w-20 h-20 rounded-3xl flex items-center justify-center mb-8 border-2 relative group-hover:shadow-2xl transition-all duration-500"
                       style={{
                         backgroundColor: `${item.color}15`,
-                        borderColor: `${item.color}40`
+                        borderColor: `${item.color}40`,
                       }}
                     >
                       <item.icon className="w-10 h-10 relative z-10" style={{ color: item.color }} />
@@ -110,9 +139,7 @@ function DesignScroll() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-300 leading-relaxed text-lg mb-8">
-                      {item.description}
-                    </p>
+                    <p className="text-gray-300 leading-relaxed text-lg mb-8">{item.description}</p>
 
                     {/* Skills List */}
                     <div className="space-y-3 mb-6">
@@ -144,15 +171,24 @@ function DesignScroll() {
                   </div>
 
                   {/* Image Side */}
-                  <div className={`relative min-h-[350px] md:min-h-full bg-gradient-to-br ${item.gradient} flex items-center justify-center p-8 md:p-12 overflow-hidden ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                  <div
+                    className={`relative min-h-[350px] md:min-h-full bg-gradient-to-br ${item.gradient} flex items-center justify-center p-8 md:p-12 overflow-hidden ${index % 2 === 1 ? "md:col-start-1 md:row-start-1" : ""
+                      }`}
+                  >
                     {/* Animated Pattern */}
                     <div className="absolute inset-0 opacity-5">
                       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.1)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%] animate-shimmer" />
                     </div>
 
                     {/* Decorative Circles */}
-                    <div className="absolute top-10 right-10 w-32 h-32 rounded-full border-2 opacity-20 animate-pulse" style={{ borderColor: item.color }} />
-                    <div className="absolute bottom-10 left-10 w-24 h-24 rounded-full border-2 opacity-20 animate-pulse" style={{ borderColor: item.color, animationDelay: '1s' }} />
+                    <div
+                      className="absolute top-10 right-10 w-32 h-32 rounded-full border-2 opacity-20 animate-pulse"
+                      style={{ borderColor: item.color }}
+                    />
+                    <div
+                      className="absolute bottom-10 left-10 w-24 h-24 rounded-full border-2 opacity-20 animate-pulse"
+                      style={{ borderColor: item.color, animationDelay: "1s" }}
+                    />
 
                     {/* Main Image */}
                     <motion.div
@@ -204,24 +240,24 @@ function DesignScroll() {
               </motion.div>
 
               <h3 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Let's Build the <span className="text-[#deff00]">Future</span> Together
+                Let&apos;s Build the <span className="text-[#deff00]">Future</span> Together
               </h3>
 
               <p className="text-gray-300 text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
-                Ready to transform your ideas into reality? Let's create something amazing that stands out
+                Ready to transform your ideas into reality? Let&apos;s create something amazing that stands out
                 and makes a lasting impact.
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button
-                  onClick={() => router.push('/contact')}
+                  onClick={() => router.push("/contact")}
                   className="group px-10 py-6 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_40px_0px_#deff00] transition-all duration-300 text-lg"
                 >
                   Get in Touch
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
-                  onClick={() => router.push('/projects')}
+                  onClick={() => router.push("/projects")}
                   className="px-10 py-6 bg-white/10 text-white font-semibold rounded-full border-2 border-white/20 hover:bg-white/20 hover:border-[#deff00]/50 transition-all duration-300 text-lg backdrop-blur-sm"
                 >
                   View Projects
@@ -234,8 +270,12 @@ function DesignScroll() {
 
       <style jsx>{`
         @keyframes shimmer {
-          0% { background-position: -250% 0; }
-          100% { background-position: 250% 0; }
+          0% {
+            background-position: -250% 0;
+          }
+          100% {
+            background-position: 250% 0;
+          }
         }
         .animate-shimmer {
           animation: shimmer 8s ease-in-out infinite;

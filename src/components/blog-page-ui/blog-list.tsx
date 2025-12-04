@@ -2,10 +2,11 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { Calendar, Clock, ArrowRight, User, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const BlogList = () => {
     const featuredPost = {
@@ -135,12 +136,13 @@ const BlogList = () => {
                             <Card className="bg-white/5 border-white/10 h-full hover:border-[#deff00]/30 transition-all duration-300 hover:-translate-y-1 group flex flex-col">
                                 <div className="h-48 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-gray-800 animate-pulse" /> {/* Placeholder for image loading */}
-                                    <img
+                                    <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                                     />
-                                    <div className="absolute top-4 left-4">
+                                    <div className="absolute top-4 left-4 z-10">
                                         <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-xs font-medium border border-white/10">
                                             {post.tags[0]}
                                         </span>

@@ -14,23 +14,28 @@ import {
 const faqs = [
   {
     title: "What technologies do you use?",
-    content: "I specialize in React, Next.js, TypeScript, Tailwind CSS, and Shadcn UI. I also have strong knowledge of Node.js, PostgreSQL, and modern backend technologies for building full-stack applications.",
+    content:
+      "I specialize in React, Next.js, TypeScript, Tailwind CSS, and Shadcn UI. I also have strong knowledge of Node.js, PostgreSQL, and modern backend technologies for building full-stack applications.",
   },
   {
     title: "Can you build responsive websites?",
-    content: "Yes! I make sure every website is fully responsive and works seamlessly across desktop, tablet, and mobile devices with pixel-perfect precision.",
+    content:
+      "Yes! I make sure every website is fully responsive and works seamlessly across desktop, tablet, and mobile devices with pixel-perfect precision.",
   },
   {
     title: "Do you work with custom designs?",
-    content: "Absolutely! I can turn any Figma, XD, or custom design into a fully functional and pixel-perfect frontend website with smooth animations.",
+    content:
+      "Absolutely! I can turn any Figma, XD, or custom design into a fully functional and pixel-perfect frontend website with smooth animations.",
   },
   {
     title: "Do you provide ongoing support?",
-    content: "Yes, I offer ongoing support, improvements, and updates to ensure your website always stays modern, functional, and secure.",
+    content:
+      "Yes, I offer ongoing support, improvements, and updates to ensure your website always stays modern, functional, and secure.",
   },
   {
     title: "Why should I work with you?",
-    content: "Because I focus on clean code, performance, and user-friendly experiences. My goal is to help your online presence stand out and grow with cutting-edge technology.",
+    content:
+      "Because I focus on clean code, performance, and user-friendly experiences. My goal is to help your online presence stand out and grow with cutting-edge technology.",
   },
 ];
 
@@ -76,7 +81,7 @@ export default function AccordionsPages() {
               onClick={() => router.push("/contact")}
               className="px-8 py-4 bg-[#deff00] text-black font-bold rounded-full hover:shadow-[0_0_30px_0px_#deff00] transition-all duration-300"
             >
-              Let's Work Together
+              Let&apos;s Work Together
             </button>
           </motion.div>
 
@@ -100,7 +105,7 @@ export default function AccordionsPages() {
                     value={`item-${index + 1}`}
                     className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#deff00]/30 transition-all"
                   >
-                    <AccordionTrigger className="text-lg font-semibold text-white px-6 py-5 hover:text-[#deff00] transition-colors [&[data-state=open]]:text-[#deff00]">
+                    <AccordionTrigger className="text-lg font-semibold text-white px-6 py-5 hover:text-[#deff00] [&[data-state=open]]:text-[#deff00] transition-colors">
                       {faq.title}
                     </AccordionTrigger>
                     <AccordionContent className="text-gray-400 px-6 pb-5 leading-relaxed">

@@ -8,8 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 
-// Animation Variants for performance
-const containerVariants = {
+const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -20,7 +19,8 @@ const containerVariants = {
     },
 };
 
-const itemVariants = {
+// @ts-ignore - Ignoring strict type check for variants
+const itemVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
@@ -51,7 +51,7 @@ const BlogList = () => {
             date: "Dec 2, 2025",
             readTime: "5 min read",
             tags: ["Next.js", "React"],
-            image: ""
+            image: "/image/nextjs-blog.png"
 
         },
         {
@@ -60,7 +60,7 @@ const BlogList = () => {
             date: "Nov 28, 2025",
             readTime: "4 min read",
             tags: ["CSS", "Tailwind"],
-            image: ""
+            image: "/image/tailwind-blog.png"
         },
         {
             title: "Dockerizing your React Application",
@@ -68,7 +68,7 @@ const BlogList = () => {
             date: "Nov 25, 2025",
             readTime: "6 min read",
             tags: ["DevOps", "Docker"],
-            image: ""
+            image: "/image/docker-blog.png"
 
         }
     ];

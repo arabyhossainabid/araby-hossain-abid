@@ -113,9 +113,9 @@ function AboutTopNotch() {
                 ].map((img, i) => (
                   <div
                     key={i}
-                    className="w-14 h-14 rounded-full border-4 border-[#0d0d0d] overflow-hidden"
+                    className="w-14 h-14 rounded-full border-4 border-[#0d0d0d] overflow-hidden relative"
                   >
-                    <img src={img} alt={`Team ${i + 1}`} className="w-full h-full object-cover" />
+                    <Image src={img} alt={`Team ${i + 1}`} fill className="object-cover" />
                   </div>
                 ))}
                 <div className="w-14 h-14 rounded-full border-4 border-[#0d0d0d] bg-[#deff00] flex items-center justify-center">

@@ -25,7 +25,6 @@ function Banner() {
     { icon: <Mail className="w-5 h-5" />, href: "mailto:arabyhossainabid@gmail.com", label: "Email" },
   ];
 
-  // Memoize options to prevent Hyperspeed re-initialization
   const hyperspeedOptions = useMemo(() => ({
     distortion: "turbulentDistortion",
     length: 400,
@@ -62,7 +61,6 @@ function Banner() {
     },
   }), []);
 
-  // 3D Tilt & Spotlight Logic
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -76,7 +74,6 @@ function Banner() {
     y.set(clientY - top);
   }
 
-  // Use useTransform instead of useMotionTemplate for better compatibility
   const maskImage = useTransform(
     [mouseX, mouseY],
     ([latestX, latestY]) => `radial-gradient(240px at ${latestX}px ${latestY}px, white, transparent)`
@@ -85,16 +82,13 @@ function Banner() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center perspective-1000">
 
-      {/* Hyperspeed Background */}
       <div className="absolute inset-0 -z-10">
         {/* @ts-expect-error - Ignoring strict type check for options */}
         <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center min-h-screen py-20">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center h-full py-8">
 
-        {/* 3D Glass Card */}
         <motion.div
           ref={ref}
           onMouseMove={onMouseMove}
@@ -106,7 +100,6 @@ function Banner() {
             transformStyle: "preserve-3d",
           }}
         >
-          {/* Spotlight Effect */}
           <motion.div
             className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-300 group-hover:opacity-100 z-30"
             style={{ maskImage, WebkitMaskImage: maskImage }}
@@ -114,14 +107,11 @@ function Banner() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#deff00]/20 to-purple-500/20 opacity-50 backdrop-blur-3xl" />
           </motion.div>
 
-          {/* Inner Content Container */}
-          <div className="relative z-20 p-8 md:p-16 flex flex-col items-center text-center">
+          <div className="relative z-20 p-8 md:p-12 flex flex-col items-center text-center">
 
-            {/* Ambient Glows */}
             <div className="absolute -top-[300px] -right-[300px] w-[600px] h-[600px] bg-[#deff00]/10 blur-[150px] rounded-full pointer-events-none" />
             <div className="absolute -bottom-[300px] -left-[300px] w-[600px] h-[600px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none" />
 
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,7 +124,6 @@ function Banner() {
               </div>
             </motion.div>
 
-            {/* Typography */}
             <div className="space-y-4 mb-12 relative z-10">
               <motion.h2
                 initial={{ opacity: 0 }}
@@ -150,7 +139,7 @@ function Banner() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
               >
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white drop-shadow-2xl">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white drop-shadow-2xl">
                   FULL-STACK
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#deff00] via-white to-[#deff00] bg-[length:200%_auto] animate-shine">
@@ -170,7 +159,6 @@ function Banner() {
               </motion.div>
             </div>
 
-            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -196,7 +184,6 @@ function Banner() {
               </button>
             </motion.div>
 
-            {/* Socials */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -220,7 +207,6 @@ function Banner() {
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -238,7 +224,6 @@ function Banner() {
 
       </div>
 
-      {/* Floating Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <FloatingIcon icon={<Code2 />} delay={0} x="5%" y="20%" />
         <FloatingIcon icon={<Terminal />} delay={2} x="90%" y="15%" />

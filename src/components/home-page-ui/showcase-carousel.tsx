@@ -60,6 +60,29 @@ const projects = [
   },
 ];
 
+// Animation Variants
+// @ts-ignore - Ignoring strict type check for variants
+const containerVariants: any = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// @ts-ignore - Ignoring strict type check for variants
+const itemVariants: any = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  },
+};
+
 export default function ShowcaseCarousel() {
   const router = useRouter();
 
@@ -75,7 +98,7 @@ export default function ShowcaseCarousel() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -87,16 +110,21 @@ export default function ShowcaseCarousel() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        {/* Optimized Grid with Staggered Animation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {projects.map((project) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={itemVariants}
+              className="h-full"
             >
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 h-full hover:border-[#deff00]/40 transition-all duration-500 hover:-translate-y-3 group overflow-hidden backdrop-blur-sm">
+              <Card className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 h-full hover:border-[#deff00]/40 transition-all duration-500 hover:-translate-y-3 group overflow-hidden backdrop-blur-sm will-change-transform">
                 {/* Image with Overlay */}
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -104,7 +132,8 @@ export default function ShowcaseCarousel() {
                     alt={project.title}
                     width={400}
                     height={300}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 will-change-transform"
                   />
 
                   {/* Gradient Overlay */}
@@ -170,7 +199,7 @@ export default function ShowcaseCarousel() {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

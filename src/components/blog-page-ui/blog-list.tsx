@@ -8,6 +8,27 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 
+// Animation Variants for performance
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.4,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut" }
+    },
+};
+
 const BlogList = () => {
     const featuredPost = {
         title: "My Journey as a Full-Stack Developer",
@@ -15,7 +36,7 @@ const BlogList = () => {
         content: [
             "I am a skilled full-stack web developer with hands-on experience in building fast, secure, and scalable applications using modern technologies. I work confidently with Next.js, React.js, TypeScript, Express.js, Node.js, PostgreSQL, Docker, AWS, and various developer tools. I also have solid experience with UI/UX-focused libraries like Tailwind CSS, shadcn/ui, GSAP, and other modern UI frameworks, ensuring attractive, responsive, and high-performance interfaces.",
             "I can design REST APIs, manage databases, integrate advanced animations, optimize applications for speed and SEO, handle deployments, and build production-ready full-stack systems. I regularly use Postman for API testing, Nginx for server configuration, and Docker for efficient app deployment. My experience also includes working with Prisma ORM, real-world backend logic, and cloud environments like AWS.",
-            "I enjoy solving complex problems, writing clean code, and creating user-friendly digital experiences. I’m confident in taking responsibility for complete project development—from planning to deployment—and I’m always learning new technologies to improve my work even further."
+            "I enjoy solving complex problems, writing clean code, and creating user-friendly digital experiences. I'm confident in taking responsibility for complete project development—from planning to deployment—and I'm always learning new technologies to improve my work even further."
         ],
         date: "Dec 4, 2025",
         readTime: "3 min read",
@@ -30,7 +51,8 @@ const BlogList = () => {
             date: "Dec 2, 2025",
             readTime: "5 min read",
             tags: ["Next.js", "React"],
-            image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1000&auto=format&fit=crop"
+            image: ""
+
         },
         {
             title: "Why Tailwind CSS is the Future of Styling",
@@ -38,7 +60,7 @@ const BlogList = () => {
             date: "Nov 28, 2025",
             readTime: "4 min read",
             tags: ["CSS", "Tailwind"],
-            image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1000&auto=format&fit=crop"
+            image: ""
         },
         {
             title: "Dockerizing your React Application",
@@ -46,7 +68,8 @@ const BlogList = () => {
             date: "Nov 25, 2025",
             readTime: "6 min read",
             tags: ["DevOps", "Docker"],
-            image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=1000&auto=format&fit=crop"
+            image: ""
+
         }
     ];
 
@@ -73,8 +96,7 @@ const BlogList = () => {
                     </p>
                 </motion.div>
 
-
-                {/* Featured Post (User's Description) */}
+                {/* Featured Post */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -114,7 +136,6 @@ const BlogList = () => {
                                 </div>
                             </div>
                             <div className="relative min-h-[300px] md:min-h-full bg-gradient-to-br from-[#deff00]/20 to-purple-500/20">
-                                {/* Abstract Pattern for Featured Image */}
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="w-64 h-64 bg-[#deff00] rounded-full blur-[80px] opacity-20 animate-pulse" />
                                 </div>
@@ -124,23 +145,29 @@ const BlogList = () => {
                     </Card>
                 </motion.div>
 
-                {/* Recent Posts Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Recent Posts Grid - OPTIMIZED */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {posts.map((post, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                            variants={itemVariants}
                         >
-                            <Card className="bg-white/5 border-white/10 h-full hover:border-[#deff00]/30 transition-all duration-300 hover:-translate-y-1 group flex flex-col">
+                            <Card className="bg-white/5 border-white/10 h-full hover:border-[#deff00]/30 transition-all duration-300 hover:-translate-y-1 group flex flex-col will-change-transform">
                                 <div className="h-48 overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-gray-800 animate-pulse" /> {/* Placeholder for image loading */}
+                                    <div className="absolute inset-0 bg-gray-800 animate-pulse" />
                                     <Image
                                         src={post.image}
                                         alt={post.title}
                                         fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100 will-change-transform"
+                                        priority={index === 0}
                                     />
                                     <div className="absolute top-4 left-4 z-10">
                                         <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-xs font-medium border border-white/10">
@@ -172,7 +199,7 @@ const BlogList = () => {
                             </Card>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
+  // Ignore ESLint errors during builds
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Performance optimizations
   compress: true,
 

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import { useRouter } from "next/navigation";
 import { ExternalLink, Github, Star, Eye, GitFork } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,8 +61,7 @@ const projects = [
 ];
 
 // Animation Variants
-// @ts-ignore - Ignoring strict type check for variants
-const containerVariants: any = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -73,8 +72,7 @@ const containerVariants: any = {
   },
 };
 
-// @ts-ignore - Ignoring strict type check for variants
-const itemVariants: any = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,

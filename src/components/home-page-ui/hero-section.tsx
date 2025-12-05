@@ -26,7 +26,12 @@ function HeroSection() {
   };
 
   const handleDownloadCV = () => {
-    window.open('/cv/araby-hossain-abid-cv.pdf', '_blank');
+    const link = document.createElement('a');
+    link.href = '/image/Abid.pdf';
+    link.download = 'Araby_Hossain_Abid_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

@@ -20,9 +20,9 @@ function Banner() {
   };
 
   const socialLinks = [
-    { icon: <Github className="w-5 h-5" />, href: "https://github.com", label: "GitHub" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <Mail className="w-5 h-5" />, href: "mailto:contact@example.com", label: "Email" },
+    { icon: <Github className="w-5 h-5" />, href: "https://github.com/arabyhossainabid", label: "GitHub" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/araby-hossain-abid-6790a5318/", label: "LinkedIn" },
+    { icon: <Mail className="w-5 h-5" />, href: "mailto:arabyhossainabid@gmail.com", label: "Email" },
   ];
 
   // Memoize options to prevent Hyperspeed re-initialization

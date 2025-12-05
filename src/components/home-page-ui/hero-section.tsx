@@ -54,7 +54,7 @@ function HeroSection() {
           >
             <Sparkles className="w-4 h-4 text-[#deff00] animate-pulse" />
             <span className="text-sm font-semibold bg-gradient-to-r from-[#deff00] to-white bg-clip-text text-transparent">
-              Full-Stack Developer &amp; UI/UX Enthusiast
+              Full-Stack Developer &amp; Frontend Developer
             </span>
           </motion.div>
 
@@ -108,7 +108,6 @@ function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Tech Stack Showcase */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,7 +141,6 @@ function HeroSection() {
                   </span>
                 </div>
 
-                {/* Tooltip */}
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap backdrop-blur-md border border-white/10">
                   {tech.name}
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 border-r border-b border-white/10" />

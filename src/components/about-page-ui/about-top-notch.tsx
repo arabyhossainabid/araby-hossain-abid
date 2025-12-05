@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Zap, Layers, Rocket } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 

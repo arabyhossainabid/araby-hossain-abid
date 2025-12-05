@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 
-const containerVariants: any = {
+// Animation Variants for performance
+const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -19,13 +20,12 @@ const containerVariants: any = {
     },
 };
 
-// @ts-ignore - Ignoring strict type check for variants
-const itemVariants: any = {
+const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
+        transition: { duration: 0.5, ease: "easeOut" as const }
     },
 };
 

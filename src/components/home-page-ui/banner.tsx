@@ -87,7 +87,7 @@ function Banner() {
 
       {/* Hyperspeed Background */}
       <div className="absolute inset-0 -z-10">
-        {/* @ts-ignore - Ignoring strict type check for options */}
+        {/* @ts-expect-error - Ignoring strict type check for options */}
         <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 

@@ -3,15 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // Ignore ESLint errors during builds
   eslint: {
     ignoreDuringBuilds: true,
   },
 
-  // Performance optimizations
   compress: true,
 
-  // Image optimization
   images: {
     remotePatterns: [
       {
@@ -32,15 +29,12 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'motion', '@tabler/icons-react'],
   },
 
-  // Production optimizations
   poweredByHeader: false,
 
-  // Webpack optimizations
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.optimization.splitChunks = {

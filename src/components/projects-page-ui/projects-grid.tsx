@@ -15,7 +15,7 @@ const projects = [
         description: "A stunning portfolio website featuring advanced GSAP animations, smooth scroll effects, and interactive transitions that create an immersive user experience.",
         image: "/image/gsap.svg",
         link: "https://mojito-ecru.vercel.app/",
-        github: "#",
+        github: "https://github.com/arabyhossainabid/jsm_gsap_landing",
         category: "GSAP",
         tags: ["GSAP", "React", "Animation", "ScrollTrigger"]
     },
@@ -25,7 +25,7 @@ const projects = [
         description: "A comprehensive job search platform with advanced filtering, application tracking, and responsive UI built with React and modern design patterns.",
         image: "/image/dream-job.svg",
         link: "https://react-career-hub-three.vercel.app/",
-        github: "#",
+        github: "https://github.com/arabyhossainabid/react-career-hub",
         category: "React",
         tags: ["React", "UI/UX", "Platform", "Responsive"]
     },
@@ -45,7 +45,7 @@ const projects = [
         description: "Modern portfolio website showcasing projects and skills with smooth animations, dark mode, and optimized performance using Next.js.",
         image: "/image/cover.svg",
         link: "https://my-portfolio-sage-two.vercel.app/",
-        github: "#",
+        github: "https://github.com/arabyhossainabid/my-portfolio",
         category: "Next.js",
         tags: ["Portfolio", "Next.js", "Design", "Framer Motion"]
     },
@@ -55,7 +55,7 @@ const projects = [
         description: "Creative landing page with interactive GSAP animations, parallax effects, and engaging micro-interactions for enhanced user engagement.",
         image: "/image/gsap-spylt.svg",
         link: "https://spylt-bay.vercel.app/",
-        github: "#",
+        github: "https://github.com/arabyhossainabid/gsap-spylt",
         category: "GSAP",
         tags: ["GSAP", "Landing Page", "Animations", "Creative"]
     },
@@ -64,8 +64,8 @@ const projects = [
         title: "E-Commerce Dashboard",
         description: "Full-stack e-commerce admin dashboard with real-time analytics, inventory management, and order tracking built with Next.js and PostgreSQL.",
         image: "/image/front-end.svg",
-        link: "#",
-        github: "#",
+        link: "https://car-vehicle-one.vercel.app/",
+        github: "https://github.com/arabyhossainabid/car_vehicle",
         category: "Full-Stack",
         tags: ["Next.js", "PostgreSQL", "Dashboard", "Analytics"]
     }
@@ -112,8 +112,8 @@ export default function ProjectsGrid() {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category
-                                        ? "bg-[#deff00] text-black shadow-[0_0_20px_0px_#deff00]"
-                                        : "bg-white/5 text-gray-300 border border-white/10 hover:border-[#deff00]/50"
+                                    ? "bg-[#deff00] text-black shadow-[0_0_20px_0px_#deff00]"
+                                    : "bg-white/5 text-gray-300 border border-white/10 hover:border-[#deff00]/50"
                                     }`}
                             >
                                 {category}

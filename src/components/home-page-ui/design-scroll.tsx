@@ -23,30 +23,30 @@ const journey = [
     title: "Frontend Development",
     description:
       "I create fast, responsive, and modern web applications using React, Next.js, Tailwind CSS, and TypeScript. My goal is to deliver seamless user experiences while maintaining high performance and clean code architecture.",
-    image: "/image/coding.svg",
+    image: "/image/frontend_dev_3d_icon.png",
     color: "#deff00",
     gradient: "from-[#deff00]/20 to-[#deff00]/5",
     skills: ["React & Next.js", "TypeScript", "Responsive Design", "Performance Optimization"],
   },
   {
     icon: Palette,
-    title: "Creative UI & Animations",
+    title: "Interactive UI & Animations",
     description:
-      "I design interactive and visually appealing interfaces with smooth animations and micro-interactions, using GSAP and Framer Motion to create dynamic experiences that captivate users and enhance engagement.",
-    image: "/image/animation.svg",
+      "I build intricate and visually appealing interfaces with smooth animations and micro-interactions, using GSAP and Framer Motion to create dynamic experiences that captivate users.",
+    image: "/image/ui_animation_3d_icon.png",
     color: "#8b5cf6",
     gradient: "from-purple-500/20 to-purple-500/5",
-    skills: ["GSAP Animations", "Framer Motion", "UI/UX Design", "Micro-interactions"],
+    skills: ["GSAP Animations", "Framer Motion", "UI Implementation", "Micro-interactions"],
   },
   {
     icon: Lightbulb,
     title: "Problem Solving & Innovation",
     description:
-      "I tackle complex frontend challenges with innovative solutions, ensuring every project not only works flawlessly but also pushes the boundaries of modern web design with creative thinking and technical excellence.",
-    image: "/image/problem-solving.svg",
+      "I tackle complex frontend challenges with innovative solutions, ensuring every project not only works flawlessly but also pushes the boundaries of modern web development with technical excellence.",
+    image: "/image/problem_solving_3d_icon.png",
     color: "#06b6d4",
     gradient: "from-cyan-500/20 to-cyan-500/5",
-    skills: ["Algorithm Design", "Code Optimization", "Creative Solutions", "Best Practices"],
+    skills: ["Algorithm Design", "Code Optimization", "Logic Implementation", "Best Practices"],
   },
 ];
 

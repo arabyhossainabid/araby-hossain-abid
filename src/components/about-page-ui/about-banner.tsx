@@ -45,7 +45,7 @@ export default function AboutBanner() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12"
           >
-            I turn your ideas into engaging, responsive web applications with clean design,
+            I turn your ideas into engaging, responsive web applications with clean code,
             modern technology, and smooth user experiences.
           </motion.p>
 
@@ -81,7 +81,7 @@ export default function AboutBanner() {
             className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
           >
             <Image
-              src="/image/divverse.svg"
+              src="/image/problem_solving_3d_icon.png"
               alt="Development"
               width={320}
               height={400}
@@ -96,7 +96,7 @@ export default function AboutBanner() {
             className="w-80 h-80 rounded-3xl overflow-hidden border-2 border-[#deff00]/20 hover:border-[#deff00]/50 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_0px_#deff00]/20"
           >
             <Image
-              src="/image/front-end.svg"
+              src="/image/frontend_dev_3d_icon.png"
               alt="Frontend Development"
               width={400}
               height={400}
@@ -111,7 +111,7 @@ export default function AboutBanner() {
             className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
           >
             <Image
-              src="/image/modern.svg"
+              src="/image/ui_animation_3d_icon.png"
               alt="Modern Design"
               width={320}
               height={400}

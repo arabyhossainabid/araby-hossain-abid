@@ -45,7 +45,7 @@ const projects = [
     image: "/image/cover.svg",
     link: "https://my-portfolio-sage-two.vercel.app/",
     github: "#",
-    tags: ["Portfolio", "Next.js", "Design"],
+    tags: ["Portfolio", "Next.js", "Framer Motion"],
     stats: { stars: 15, views: "750", forks: 4 }
   },
   {

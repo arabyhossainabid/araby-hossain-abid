@@ -11,7 +11,7 @@ const projects = [
     id: 1,
     title: "Mojito",
     subtitle: "Dynamic About Page / Motion Effects",
-    img: "/image/gsap.svg",
+    img: "/images/gsap.svg",
     link: "https://mojito-ecru.vercel.app/",
     github: "#",
     tags: ["GSAP", "React", "Animation"]
@@ -20,7 +20,7 @@ const projects = [
     id: 2,
     title: "Career Hub",
     subtitle: "Job Search Platform / Responsive UI",
-    img: "/image/dream-job.svg",
+    img: "/images/dream-job.svg",
     link: "https://react-career-hub-three.vercel.app/",
     github: "#",
     tags: ["React", "UI/UX", "Platform"]
@@ -29,7 +29,7 @@ const projects = [
     id: 3,
     title: "Medical Service",
     subtitle: "NextUI / Tailwind / Validation",
-    img: "/image/medical-service.svg",
+    img: "/images/medical-service.svg",
     link: "/",
     github: "#",
     tags: ["Next.js", "Healthcare", "Forms"]
@@ -38,7 +38,7 @@ const projects = [
     id: 4,
     title: "Portfolio Website",
     subtitle: "Next.js / Tailwind / Animation",
-    img: "/image/cover.svg",
+    img: "/images/cover.svg",
     link: "https://my-portfolio-sage-two.vercel.app/",
     github: "#",
     tags: ["Portfolio", "Next.js", "Design"]

@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   title: "Araby Hossain Abid - Full-Stack Developer",
   description: "Skilled full-stack web developer specializing in Next.js, React, TypeScript, Node.js, and modern web technologies. Building fast, secure, and scalable applications.",
-  icons: { icon: "/image/logo.svg" },
+  icons: { icon: "/images/logo.svg" },
   keywords: ["Full-Stack Developer", "Next.js", "React", "TypeScript", "Web Development", "Araby Hossain Abid"],
   authors: [{ name: "Araby Hossain Abid" }],
   openGraph: {

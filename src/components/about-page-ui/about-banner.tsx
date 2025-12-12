@@ -81,7 +81,7 @@ export default function AboutBanner() {
             className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
           >
             <Image
-              src="/image/about_idea.svg"
+              src="/images/about_idea.svg"
               alt="Development"
               width={320}
               height={400}
@@ -96,7 +96,7 @@ export default function AboutBanner() {
             className="w-80 h-80 rounded-3xl overflow-hidden border-2 border-[#deff00]/20 hover:border-[#deff00]/50 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_0px_#deff00]/20"
           >
             <Image
-              src="/image/about_coding.svg"
+              src="/images/about_coding.svg"
               alt="Frontend Development"
               width={400}
               height={400}
@@ -111,7 +111,7 @@ export default function AboutBanner() {
             className="w-52 h-80 rounded-3xl overflow-hidden border-2 border-white/10 hover:border-[#deff00]/30 transition-all duration-300 hover:scale-105"
           >
             <Image
-              src="/image/about_speed.svg"
+              src="/images/about_speed.svg"
               alt="Modern Design"
               width={320}
               height={400}

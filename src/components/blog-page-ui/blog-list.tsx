@@ -51,7 +51,7 @@ const BlogList = () => {
             date: "Dec 2, 2025",
             readTime: "5 min read",
             tags: ["Next.js", "React"],
-            image: "/image/nextjs-blog.png"
+            image: "/images/nextjs-blog.png"
 
         },
         {
@@ -60,7 +60,7 @@ const BlogList = () => {
             date: "Nov 28, 2025",
             readTime: "4 min read",
             tags: ["CSS", "Tailwind"],
-            image: "/image/tailwind-blog.png"
+            image: "/images/tailwind-blog.png"
         },
         {
             title: "Dockerizing your React Application",
@@ -68,7 +68,7 @@ const BlogList = () => {
             date: "Nov 25, 2025",
             readTime: "6 min read",
             tags: ["DevOps", "Docker"],
-            image: "/image/docker-blog.png"
+            image: "/images/docker-blog.png"
 
         }
     ];
@@ -139,7 +139,7 @@ const BlogList = () => {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="w-64 h-64 bg-[#deff00] rounded-full blur-[80px] opacity-20 animate-pulse" />
                                 </div>
-                                <div className="absolute inset-0 bg-[url('/image/cubes.png')] opacity-10" />
+                                <div className="absolute inset-0 bg-[url('/images/cubes.png')] opacity-10" />
                             </div>
                         </div>
                     </Card>

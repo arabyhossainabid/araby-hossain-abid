@@ -10,7 +10,7 @@ const testimonials = [
     name: "Araby Hossain Abid",
     role: "Full Stack Web Developer",
     company: "Self-Employed",
-    image: "/image/client-1.jpg",
+    image: "/images/client-1.jpg",
     review:
       "I create responsive and high-performance websites and web applications using React, Next.js, and Tailwind CSS. My focus is on clean code, smooth animations, and enhancing the overall user experience with modern technologies.",
     rating: 5,
@@ -21,7 +21,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Startup Founder",
     company: "TechVenture Inc",
-    image: "/image/client-2.jpg",
+    image: "/images/client-2.jpg",
     review:
       "Abid delivered our web application with precision and creativity. The user interface is intuitive, visually appealing, and the site performs flawlessly on all devices. Highly recommended!",
     rating: 5,
@@ -32,7 +32,7 @@ const testimonials = [
     name: "Michael Chen",
     role: "Product Manager",
     company: "InnovateLabs",
-    image: "/image/client-3.jpg",
+    image: "/images/client-3.jpg",
     review:
       "Working with Abid was seamless. He brought our vision to life with modern frontend technologies, responsive layouts, and interactive elements that truly enhance user engagement.",
     rating: 5,
@@ -43,7 +43,7 @@ const testimonials = [
     name: "Emma Williams",
     role: "Creative Director",
     company: "DesignHub",
-    image: "/image/client-4.jpg",
+    image: "/images/client-4.jpg",
     review:
       "Abid&apos;s frontend expertise is impressive. He perfectly integrates animations, responsive design, and usability into every project. Collaborating with him is always a great experience.",
     rating: 5,

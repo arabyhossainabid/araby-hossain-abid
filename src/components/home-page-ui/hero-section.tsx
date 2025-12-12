@@ -27,7 +27,7 @@ function HeroSection() {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/image/Abid.pdf';
+    link.href = '/images/Abid.pdf';
     link.download = 'Araby_Hossain_Abid_CV.pdf';
     document.body.appendChild(link);
     link.click();

@@ -1,0 +1,32 @@
+<svg width="600" height="800" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="bulb_grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DEFF00" />
+      <stop offset="1" stop-color="#9EFF00" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="800" fill="#0D0D0D"/>
+  
+  <!-- Glowing Idea Bulb -->
+  <g transform="translate(300, 400)">
+    <circle cx="0" cy="0" r="100" fill="url(#bulb_grad)" fill-opacity="0.1" filter="url(#glow)" />
+    <path d="M-60 -20 A80 80 0 1 1 60 -20 L40 80 L-40 80 Z" stroke="#DEFF00" stroke-width="4" fill="none"/>
+    <path d="M-40 80 L-30 110 L30 110 L40 80" stroke="#DEFF00" stroke-width="4" fill="none"/>
+    
+    <!-- Filament -->
+    <path d="M-30 -20 Q0 20 30 -20 M-30 -20 Q-15 -60 0 -20 M30 -20 Q15 -60 0 -20" stroke="#DEFF00" stroke-width="3" filter="url(#glow)"/>
+    
+    <!-- Sparks -->
+    <path d="M0 -120 L0 -150" stroke="#DEFF00" stroke-width="3" opacity="0.8"/>
+    <path d="M100 -80 L130 -110" stroke="#DEFF00" stroke-width="3" opacity="0.8"/>
+    <path d="M-100 -80 L-130 -110" stroke="#DEFF00" stroke-width="3" opacity="0.8"/>
+  </g>
+</svg>

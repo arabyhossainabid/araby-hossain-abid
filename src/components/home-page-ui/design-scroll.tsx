@@ -23,7 +23,7 @@ const journey = [
     title: "Frontend Development",
     description:
       "I create fast, responsive, and modern web applications using React, Next.js, Tailwind CSS, and TypeScript. My goal is to deliver seamless user experiences while maintaining high performance and clean code architecture.",
-    image: "/image/frontend_dev_3d_icon.png",
+    image: "/image/tech_frontend.svg",
     color: "#deff00",
     gradient: "from-[#deff00]/20 to-[#deff00]/5",
     skills: ["React & Next.js", "TypeScript", "Responsive Design", "Performance Optimization"],
@@ -33,7 +33,7 @@ const journey = [
     title: "Interactive UI & Animations",
     description:
       "I build intricate and visually appealing interfaces with smooth animations and micro-interactions, using GSAP and Framer Motion to create dynamic experiences that captivate users.",
-    image: "/image/ui_animation_3d_icon.png",
+    image: "/image/tech_ui.svg",
     color: "#8b5cf6",
     gradient: "from-purple-500/20 to-purple-500/5",
     skills: ["GSAP Animations", "Framer Motion", "UI Implementation", "Micro-interactions"],
@@ -43,7 +43,7 @@ const journey = [
     title: "Problem Solving & Innovation",
     description:
       "I tackle complex frontend challenges with innovative solutions, ensuring every project not only works flawlessly but also pushes the boundaries of modern web development with technical excellence.",
-    image: "/image/problem_solving_3d_icon.png",
+    image: "/image/tech_problem.svg",
     color: "#06b6d4",
     gradient: "from-cyan-500/20 to-cyan-500/5",
     skills: ["Algorithm Design", "Code Optimization", "Logic Implementation", "Best Practices"],

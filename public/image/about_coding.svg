@@ -1,0 +1,33 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="#0D0D0D"/>
+  
+  <!-- Central Code Hub -->
+  <g transform="translate(400, 400)">
+     <!-- Tech Orbit Rings -->
+    <ellipse cx="0" cy="0" rx="300" ry="100" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.2" transform="rotate(45)"/>
+    <ellipse cx="0" cy="0" rx="300" ry="100" stroke="#DEFF00" stroke-width="2" stroke-opacity="0.2" transform="rotate(-45)"/>
+    
+    <!-- Laptop/Screen Icon -->
+    <rect x="-100" y="-70" width="200" height="120" rx="8" fill="#1A1A1A" stroke="#DEFF00" stroke-width="3" filter="url(#glow)"/>
+    <path d="M-120 70 L120 70 L100 50 L-100 50 Z" fill="#333"/>
+    
+    <!-- Code Lines -->
+    <path d="M-80 -40 H0" stroke="#06B6D4" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-80 -10 H50" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-80 20 H30" stroke="#DEFF00" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Floating Icons -->
+    <circle cx="200" cy="0" r="30" fill="#1A1A1A" stroke="#DEFF00" stroke-width="2"/>
+    <text x="188" y="8" font-family="monospace" font-size="24" fill="#DEFF00">&lt;/&gt;</text>
+  </g>
+</svg>

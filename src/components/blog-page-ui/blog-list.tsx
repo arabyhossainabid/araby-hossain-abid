@@ -139,7 +139,7 @@ const BlogList = () => {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="w-64 h-64 bg-[#deff00] rounded-full blur-[80px] opacity-20 animate-pulse" />
                                 </div>
-                                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+                                <div className="absolute inset-0 bg-[url('/image/cubes.png')] opacity-10" />
                             </div>
                         </div>
                     </Card>

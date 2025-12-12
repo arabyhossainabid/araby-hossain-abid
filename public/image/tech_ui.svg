@@ -1,0 +1,57 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="card_grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2a2a" />
+      <stop offset="1" stop-color="#111" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="#050505" />
+
+  <!-- Background Isometric Grid -->
+  <g transform="translate(400, 100) scale(1, 0.6)" opacity="0.1">
+    <path d="M-400 0 H400 M-400 40 H400 M-400 80 H400 M-400 120 H400 M-400 160 H400" stroke="#FFF" stroke-width="1"/>
+    <path d="M0 -400 V400 M40 -400 V400 M80 -400 V400 M120 -400 V400 M160 -400 V400" stroke="#FFF" stroke-width="1"/>
+  </g>
+
+  <!-- Isometric Stack -->
+  <g transform="translate(400, 300)">
+    <!-- Bottom Layer (Shadow) -->
+    <path d="M-200 100 L0 200 L200 100 L0 0 Z" fill="#000" opacity="0.5" filter="url(#glow)"/>
+    
+    <!-- Base Layer -->
+    <path d="M-200 80 L0 180 L200 80 L0 -20 Z" fill="#1A1A1A" stroke="#333" stroke-width="2"/>
+    
+    <!-- Middle Layer -->
+    <g transform="translate(0, -60)">
+        <path d="M-180 80 L0 170 L180 80 L0 -10 Z" fill="#222" stroke="#8B5CF6" stroke-width="2" opacity="0.9"/>
+        <!-- UI Elements on Middle Layer -->
+        <path d="M-100 80 L-40 110 L20 80 L-40 50 Z" fill="#8B5CF6" opacity="0.5"/>
+        <path d="M40 80 L100 110 L160 80 L100 50 Z" fill="#8B5CF6" opacity="0.3"/>
+    </g>
+
+    <!-- Top Active Layer (Glassmorphism) -->
+    <g transform="translate(0, -140)">
+        <path d="M-160 80 L0 160 L160 80 L0 0 Z" fill="#2A2A2A" stroke="#DEFF00" stroke-width="3" filter="url(#glow)"/>
+        
+        <!-- Active UI Elements -->
+        <circle cx="0" cy="80" r="30" fill="#DEFF00" opacity="0.2"/>
+        <path d="M-80 60 L-20 90" stroke="#DEFF00" stroke-width="4" stroke-linecap="round"/>
+        <path d="M20 90 L80 60" stroke="#DEFF00" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- Cursor -->
+        <path d="M40 100 L60 150 L75 135 L95 160 L105 150 L85 125 L100 120 Z" fill="#DEFF00" stroke="black" stroke-width="2" transform="translate(20, 20)"/>
+    </g>
+  </g>
+
+  <!-- Motion Lines -->
+  <path d="M150 200 Q200 150 250 200" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="10 10" opacity="0.5"/>
+  <path d="M650 400 Q600 450 550 400" stroke="#DEFF00" stroke-width="2" stroke-dasharray="10 10" opacity="0.5"/>
+</svg>

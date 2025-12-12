@@ -226,7 +226,7 @@ function DesignScroll() {
           <Card className="bg-gradient-to-br from-[#deff00]/15 via-purple-500/10 to-blue-500/10 border-[#deff00]/30 backdrop-blur-sm overflow-hidden relative">
             {/* Animated Background */}
             <div className="absolute inset-0 opacity-5">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+              <div className="absolute inset-0 bg-[url('/image/cubes.png')]" />
             </div>
 
             <CardContent className="p-12 md:p-20 relative z-10">
